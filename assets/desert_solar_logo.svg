@@ -1,0 +1,8 @@
+<svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="80" rx="4" fill="#F5F9F8"/>
+  <circle cx="60" cy="28" r="16" fill="#F39C12"/>
+  <path d="M30 60L60 30L90 60H30Z" fill="#1E8449"/>
+  <path d="M40 60L50 50L60 60H40Z" fill="#117A65"/>
+  <path d="M60 60L70 50L80 60H60Z" fill="#117A65"/>
+  <text x="60" y="70" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#2C3E50">DESERT SOLAR</text>
+</svg>
