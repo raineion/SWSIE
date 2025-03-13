@@ -1,0 +1,105 @@
+/* Header specific styling */
+
+.swsie-title {
+  font-size: 2rem; /* Larger title */
+  font-weight: 700;
+  color: #0066cc !important;
+  text-wrap: balance;
+  max-width: 700px; /* More space for title */
+  line-height: 1.2;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, #0066cc, #2e86de, #54a0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  text-shadow: 0 2px 10px rgba(0, 102, 204, 0.1);
+  position: static; /* Change from absolute positioning */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px; /* Larger logo */
+  height: 80px;
+  margin-right: 24px; /* Space between logo and title */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: static; /* Change from absolute positioning */
+  margin-left: 0; /* Ensure no left margin */
+}
+
+.logo-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.logo-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.logo-container:hover img {
+  transform: scale(1.05);
+}
+
+/* Position header in top left corner */
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  padding: 0 20px;
+  margin: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: rgba(255, 255, 255, 0.97);
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #0066cc, transparent);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem 0;
+}
+
+.header-area {
+  position: relative;
+  height: 80px;
+  width: 100%;
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .swsie-title {
+    font-size: 1.2rem;
+  }
+  
+  .logo-container {
+    width: 50px;
+    height: 40px;
+    margin-right: 16px;
+  }
+}

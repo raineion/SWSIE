@@ -1,0 +1,252 @@
+.carousel-section {
+  position: relative;
+  width: 100%;
+  padding: 60px 20px; /* Reduced horizontal padding from 40px to 20px */
+  margin: 80px 0;
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 50%, #f5576c 100%);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: none; /* Explicitly remove any border */
+}
+
+.carousel-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, #f6d365 0%, #fda085 50%, #f5576c 100%);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+/* Create an infinite scrolling carousel */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 40px 0;
+  cursor: grab;
+  background: transparent !important;
+  scroll-behavior: auto !important; /* Prevent smooth scrolling which would interfere with animation */
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  scroll-behavior: auto;
+}
+
+/* Optimize carousel for smoother rendering */
+.carousel-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  padding: 40px 0;
+}
+
+.carousel-container:active {
+  cursor: grabbing;
+}
+
+/* The inner container for the infinite slider */
+.carousel-inner {
+  display: flex;
+  gap: 15px; /* Further reduced from 20px to 15px */
+  width: max-content;
+  padding: 0 40px;
+  background: transparent !important;
+  /* Remove animation attributes and let JS handle it */
+  width: max-content; /* Let content determine width */
+  padding: 20px 0;
+  will-change: transform;
+}
+
+/* Hardware acceleration for the inner carousel */
+.carousel-inner {
+  display: flex;
+  width: max-content;
+  padding: 20px 0;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.carousel-inner:hover {
+  animation-play-state: paused;
+}
+
+/* Remove the custom animation definitions as we'll handle with JS */
+
+/* Reduce partner card width to fit more on screen */
+.partner-card {
+  min-width: 250px; /* Further reduced from 300px to 250px */
+  height: 320px; 
+  background-color: white;
+  border-radius: 12px; /* Less rounded corners */
+  padding: 30px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border: none; /* Explicitly remove any border */
+  outline: none;
+  margin: 0;
+  transform: translateZ(0); /* Force GPU rendering */
+  backface-visibility: hidden;
+  contain: content; /* Improves performance by isolating content */
+}
+
+.partner-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.card-icon-container {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  margin-right: 20px;
+  color: white;
+  background-color: #0066cc !important;
+}
+
+.card-icon-container.with-logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+}
+
+.card-icon-container.show-icon {
+  display: flex;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+  margin-left: 10px;
+}
+
+.card-description {
+  flex-grow: 1;
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.card-button {
+  border: none;
+  border-radius: 8px;
+  padding: 14px 0;
+  width: 100%;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: white !important; /* Ensure text is white */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  background-color: #0066cc !important; /* Force blue background regardless */
+}
+
+.card-button:hover {
+  background-color: #0055aa !important; /* Darker blue on hover */
+}
+
+.section-title {
+  color: white;
+  text-align: left;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  padding-left: 40px;
+  background: transparent !important;
+}
+
+.card-logo-container {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 8px;
+  padding: 8px;
+  margin-right: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.card-logo-container.show-icon {
+  /* When we need to show the icon instead of the logo */
+  background-color: #0066cc;
+  color: white;
+  padding: 0;
+}
+
+.card-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Hidden class to properly hide elements */
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .partner-card {
+    min-width: 260px;
+  }
+}
+
+/* Add responsive sizing for different screen sizes */
+@media (max-width: 1600px) {
+  .partner-card {
+    min-width: 230px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .partner-card {
+    min-width: 220px;
+  }
+  .carousel-inner {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .partner-card {
+    min-width: 210px;
+  }
+}
+
+@media (max-width: 992px) {
+  .partner-card {
+    min-width: 200px;
+  }
+  .card-description {
+    font-size: 1rem;
+  }
+}

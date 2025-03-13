@@ -1,0 +1,936 @@
+/* Become a Partner section */
+.become-partner-section {
+  background: linear-gradient(135deg, #f0f4f8 0%, #e0eaf3 100%);
+  padding: 30px;
+  border-radius: 16px;
+  margin-top: 40px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 102, 204, 0.1);
+  position: relative;
+  overflow: hidden;
+  height: 400px; /* Fixed height for both boxes */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.become-partner-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230066cc' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.8;
+}
+
+.become-partner-section .section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 30px;
+  position: relative;
+  text-shadow: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+  text-fill-color: unset;
+  background: none;
+  background-color: transparent !important;
+}
+
+.become-partner-section .section-description {
+  font-size: 1.2rem;
+  color: #444;
+  margin-bottom: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  position: relative;
+  background-color: transparent !important;
+}
+
+.become-partner-button {
+  background: linear-gradient(45deg, #0066cc, #1a8cff);
+  color: white;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.become-partner-button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.become-partner-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
+}
+
+.become-partner-button:hover:before {
+  left: 100%;
+}
+
+/* Enhance Learn More button */
+.learn-more-button {
+  background: white;
+  color: #0066cc;
+  border: 2px solid #0066cc;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.learn-more-button:hover {
+  background-color: #f0f7ff;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 22px rgba(0, 102, 204, 0.25);
+}
+
+.learn-more-button:active {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+}
+
+/* Partner boxes container */
+.partner-boxes-container {
+  display: flex;
+  gap: 30px;
+  margin-top: 40px;
+  padding: 0 20px;
+}
+
+@media (max-width: 992px) {
+  .partner-boxes-container {
+    flex-direction: column;
+  }
+}
+
+/* Become a Partner section - base styles */
+.become-partner-info {
+  flex: 3;
+  background: linear-gradient(135deg, #f0f4f8 0%, #e0eaf3 100%) !important;
+}
+
+.become-partner-contact {
+  flex: 2;
+  background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%) !important;
+  border: 2px solid rgba(0, 102, 204, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.become-partner-section .partner-title-black {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 25px;
+  position: relative;
+  text-shadow: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+  text-fill-color: unset;
+  background: none;
+  width: 100%;
+  text-align: center;
+  background-color: transparent !important;
+}
+
+.partner-icon {
+  background: rgba(0, 102, 204, 0.1);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: #0066cc;
+  background-color: transparent !important;
+}
+
+/* Enhance Contact Us button */
+.contact-us-button {
+  background: #0066cc;
+  color: white;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+.contact-us-button:hover {
+  transform: translateY(-5px);
+  background-color: #0055aa;
+  box-shadow: 0 8px 22px rgba(0, 102, 204, 0.4);
+}
+
+.contact-us-button:active {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+}
+
+/* Partners list section */
+.partners-list-section {
+  display: flex;
+  margin-top: 60px;
+  padding: 0 20px;
+  gap: 30px;
+}
+
+/* Standardize filter section boxes and spacing */
+.filter-section {
+  flex: 0 0 300px;  /* Increase width from 280px to 300px */
+  width: 300px;     /* Make sure width is consistent */
+  background: white;
+  padding: 25px 20px; /* Consistent padding */
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 120px;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.filter-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0066cc;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgba(0, 102, 204, 0.2);
+}
+
+.filter-input {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f8f8f8;
+}
+
+.filter-input:focus {
+  border-color: #0088ff;
+  box-shadow: 0 0 0 3px rgba(0, 136, 255, 0.2);
+  outline: none;
+}
+
+.filter-category {
+  margin-bottom: 24px;
+}
+
+/* Fix filter category titles */
+.filter-category-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 8px; /* Consistent spacing */
+  border-bottom: 1px solid rgba(0, 102, 204, 0.1); /* Subtle separation */
+}
+
+.filter-category-title svg {
+  margin-right: 10px;
+  color: #0066cc;
+  min-width: 20px; /* Fixed width for icon */
+}
+
+/* Standardize filter options spacing */
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Slightly reduced for tighter layout */
+}
+
+/* Fix checkbox alignment and sizing */
+.custom-checkbox {
+  display: grid;
+  grid-template-columns: 22px 1fr auto;
+  grid-gap: 10px;
+  align-items: start;
+  min-height: 30px;
+  padding: 4px 0;
+  position: relative;
+}
+
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Standardize checkmark boxes */
+.checkmark {
+  grid-column: 1;
+  height: 22px;
+  width: 22px;
+  min-width: 22px; /* Ensure fixed width */
+  background-color: #f0f0f0;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  margin-right: 0; /* Remove margin as we're using grid gap */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  position: relative; /* For proper positioning of the check mark */
+  margin-top: 2px;  /* Add a small top margin to align with first line of text */
+}
+
+.custom-checkbox:hover .checkmark {
+  background-color: #e6e6e6;
+}
+
+.custom-checkbox input:checked ~ .checkmark {
+  background-color: #0066cc;
+  border-color: #0066cc;
+}
+
+.checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.custom-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Fix filter label layout and spacing */
+.filter-label {
+  grid-column: 2;
+  font-size: 0.95rem;  /* Slightly reduce font size from 1.1rem to 1rem */
+  color: #444;
+  font-weight: 500;
+  flex: 1; /* Allow label to take up space */
+  white-space: normal;  /* Allow text to wrap to next line (instead of nowrap) */
+  overflow: visible;    /* Show full text (instead of hidden) */
+  text-overflow: clip;  /* Don't add ellipsis */
+  margin-right: 0; /* Remove margin as we're using grid gap */
+  line-height: 1.3;     /* Add line height for better readability when wrapped */
+  padding-top: 1px;
+}
+
+/* Consistent sizing for count badges */
+.filter-count {
+  grid-column: 3;
+  margin-left: 0; /* Remove margin as we're using grid */
+  background-color: #e8f2ff;
+  color: #0066cc;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  min-width: 28px; /* Ensure minimum width */
+  text-align: center;
+  margin-top: 2px;  /* Align with first line of text */
+  align-self: start;  /* Align to the top */
+}
+
+/* Fix filter actions */
+.filter-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #eaeaea;
+  gap: 12px; /* Slightly reduced gap */
+  width: 100%; /* Ensure full width of parent */
+}
+
+/* Standardize filter buttons */
+.filter-button {
+  padding: 10px 8px; /* Reduced horizontal padding */
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1; /* Make buttons take equal space */
+  text-align: center;
+  height: 44px; /* Fixed height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: calc(50% - 6px); /* Ensure buttons don't exceed half width minus gap */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Style reset button consistently */
+.reset-filter {
+  background-color: #f5f5f5;
+  color: #666;
+  border: 1px solid #ddd;
+}
+
+.reset-filter:hover {
+  background-color: #e8e8e8;
+  color: #333;
+}
+
+/* Style apply button consistently */
+.apply-filter {
+  background-color: #0066cc;
+  color: white;
+  border: none;
+}
+
+.apply-filter:hover {
+  background-color: #0055aa;
+}
+
+/* Partners grid styling */
+.partners-list {
+  flex: 1;
+}
+
+.partners-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.partners-list-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.partners-count {
+  background-color: #0066cc;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.partner-card-item {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid #eaeaea;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.partner-card-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.partner-card-header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.partner-logo-container {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  overflow: hidden;
+}
+
+.partner-logo {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.partner-icon-fallback {
+  position: absolute;
+  display: none;
+  color: #0066cc;
+  z-index: 0;
+}
+
+.partner-icon-fallback.show-icon,
+.partner-logo-container.show-icon .partner-icon-fallback {
+  display: flex;
+}
+
+.partner-logo {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+.partner-card-icon {
+  color: #0066cc;
+  font-size: 24px;
+}
+
+.partner-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.partner-card-body {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.partner-category {
+  display: inline-block;
+  background-color: #e8f2ff;
+  color: #0066cc;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.partner-description {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.partner-card-footer {
+  padding: 15px 20px;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.partner-location {
+  display: flex;
+  align-items: center;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.partner-location svg {
+  margin-right: 8px;
+}
+
+.partner-view-link {
+  color: #0066cc;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.partner-view-link svg {
+  margin-left: 5px;
+  transition: transform 0.2s ease;
+}
+
+.partner-view-link:hover svg {
+  transform: translateX(3px);
+}
+
+/* Empty state */
+.empty-state {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 60px;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.empty-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.empty-message {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 1024px) {
+  .partners-list-section {
+    flex-direction: column;
+  }
+  
+  .filter-section {
+    position: static;
+    flex: none;
+    width: 100%;
+    max-height: none;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .partners-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .become-partner-section {
+    padding: 40px 20px;
+  }
+  
+  .become-partner-section .section-title {
+    font-size: 2rem;
+  }
+}
+
+/* Box content wrapper for proper centering */
+.box-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* To appear above the background pattern */
+  width: 100%;
+  z-index: 2;
+  height: 100%;
+  background-color: transparent !important;
+}
+
+/* Make boxes clickable with visual feedback */
+.clickable-box {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.clickable-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 102, 204, 0.2);
+}
+
+.clickable-box:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.4), 0 15px 30px rgba(0, 102, 204, 0.2);
+}
+
+.clickable-box:active {
+  transform: translateY(-2px);
+}
+
+.clickable-box:hover .learn-more-button {
+  background-color: #f0f7ff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.2);
+}
+
+.clickable-box:hover .contact-us-button {
+  background-color: #0055aa;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
+}
+
+/* Additional centering for text content */
+.centered-content {
+  text-align: center;
+  max-width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+  height: 100%;
+  background-color: transparent !important;
+}
+
+.centered-content .section-title,
+.centered-content .section-description {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.centered-content .section-description {
+  width: 100%;
+  max-width: 80%;
+}
+
+/* Pagination controls */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  gap: 15px;
+}
+
+.pagination-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  background-color: #f5f7fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  color: #0066cc;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 100px;
+  gap: 8px;
+}
+
+.pagination-button:hover:not(.disabled) {
+  background-color: #e8f2ff;
+  border-color: #0066cc;
+}
+
+.pagination-button.disabled {
+  color: #999;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.pagination-pages {
+  display: flex;
+  gap: 8px;
+}
+
+.pagination-page-number {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background-color: #f5f7fa;
+  border: 1px solid #e0e0e0;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pagination-page-number:hover:not(.active) {
+  background-color: #e8f2ff;
+  border-color: #0066cc;
+}
+
+.pagination-page-number.active {
+  background-color: #0066cc;
+  color: white;
+  border-color: #0066cc;
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+  .pagination-pages {
+    display: none; /* Hide page numbers on mobile */
+  }
+
+  .pagination-controls {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .pagination-button {
+    min-width: 120px;
+  }
+}
+
+/* Updated header styling */
+.header-wrapper {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  background-color: transparent; /* Changed from white to transparent */
+  padding: 15px 20px;
+  border-radius: 16px;
+  box-shadow: none; /* Removed box shadow */
+  max-width: 90%;
+}
+
+/* Add background just to the logo container */
+.logo-container {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white; /* White background just for the logo */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Shadow just for logo */
+}
+
+/* Make separator even longer */
+.header-separator {
+  height: 80px; /* Increased from 60px to 80px for a longer line */
+  width: 2px;
+  background-color: #aaa;
+  margin: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Adjust the vertical line character to match new height */
+.header-separator::after {
+  content: '|';
+  position: absolute;
+  color: #777;
+  font-size: 32px; /* Increased from 28px to 32px */
+  font-weight: 200;
+  line-height: 0;
+  opacity: 0.8;
+}
+
+/* Title container for hierarchical layout */
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 2px; /* Add a tiny bit of left margin */
+  gap: 2px; /* Add a small consistent gap */
+}
+
+/* Smaller top title */
+.swsie-title-small {
+  font-size: 1rem; /* Increased from 0.9rem to 1rem */
+  font-weight: 500;
+  color: #333; /* Darker color for better visibility on transparent background */
+  margin-bottom: 1px; /* Reduced from 4px to 1px for tighter spacing */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1; /* Add tight line height */
+  text-shadow: 0 1px 1px rgba(255,255,255,0.7); /* Optional text shadow for legibility */
+}
+
+/* Main large title */
+.swsie-title-large {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0066cc;
+  margin: 0;
+  line-height: 1.2; /* Reduce from 1.3 to 1.2 to match h1 */
+}
+
+.swsie-title-large h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #222; /* Darker color for better visibility */
+  margin: 0;
+  padding: 0;
+  line-height: 1.2; /* Reduce from 1.3 to 1.2 for tighter spacing */
+  text-shadow: 0 1px 1px rgba(255,255,255,0.7); /* Optional text shadow for legibility */
+}
+
+/* Subtitle */
+.swsie-subtitle {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+  margin-top: 3px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .header-separator {
+    display: none;
+  }
+  
+  .title-container {
+    align-items: center;
+    margin-top: 15px;
+  }
+  
+  .swsie-title-large {
+    font-size: 1.4rem;
+  }
+
+  .swsie-title-large h1 {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+}

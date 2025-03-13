@@ -1,0 +1,10 @@
+/* Import style modules using proper paths */
+@import '../styles/base.css';
+@import '../styles/typography.css';
+@import '../styles/layout.css';
+@import '../styles/components.css';
+@import '../styles/header.css';
+@import '../styles/utilities.css';
+@import '../styles/carousel.css';
+@import '../styles/partner-detail.css';
+@import '../styles/homepage.css';
