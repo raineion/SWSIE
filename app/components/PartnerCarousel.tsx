@@ -5,8 +5,8 @@ import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { FaBuilding, FaUniversity, FaCity, FaFlask } from 'react-icons/fa';
 
-// Sample partner data - replace with your actual partners
-const basePartners = [
+
+const featuredPartners = [
   {
     id: 1,
     name: 'Desert Research Institute',
@@ -61,14 +61,14 @@ const basePartners = [
 // Create an array with duplicated partners to ensure continuous scrolling
 const createPartners = () => {
   return [
-    ...basePartners,
-    ...basePartners,
-    ...basePartners,
-    ...basePartners,
-    ...basePartners,
-    ...basePartners,
-    ...basePartners,
-    ...basePartners,
+    ...featuredPartners,
+    ...featuredPartners,
+    ...featuredPartners,
+    ...featuredPartners,
+    ...featuredPartners,
+    ...featuredPartners,
+    ...featuredPartners,
+    ...featuredPartners,
   ].map((partner, index) => ({
     ...partner,
     id: `${partner.id}-${index}`
@@ -100,7 +100,7 @@ export default function PartnerCarousel() {
     const inner = innerRef.current;
     if (!inner) return;
     
-    const basePartnersCount = basePartners.length;
+    const basePartnersCount = featuredPartners.length;
     const partnerCards = Array.from(inner.children);
     
     // Calculate parameters for animation
@@ -243,7 +243,6 @@ export default function PartnerCarousel() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
-        style={{ textAlign: 'left', paddingLeft: '20px' }}
       >
         Our Featured Partners
       </motion.h2>

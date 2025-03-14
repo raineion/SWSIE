@@ -3,8 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
-import { FaUniversity, FaFlask, FaCity, FaBuilding, FaSearch, FaMapMarkerAlt, FaHandshake, FaEnvelope, FaInfoCircle, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaUniversity, FaMapMarkerAlt, FaHandshake, FaEnvelope, FaInfoCircle, FaChevronLeft, FaChevronRight, FaCalendarAlt, FaSortAmountDown, FaSortAmountUp } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
+import { allPartners, filterAndSortPartners, getCategoryCounts, defaultFilterState, SORT_OPTIONS, formatDate, getYear, getMonth } from './Partners';
 
 // Import the PartnerCarousel component
 const PartnerCarousel = dynamic(() => import('./PartnerCarousel'), {
@@ -12,223 +13,11 @@ const PartnerCarousel = dynamic(() => import('./PartnerCarousel'), {
   loading: () => <div className="loading-placeholder">Loading partners...</div>
 });
 
-// Sample partners data
-const allPartners = [
-  {
-    id: 1,
-    name: 'Desert Research Institute',
-    description: 'Leading environmental research institute focused on water, air quality, and ecosystem science.',
-    logo: '/logos/dri-logo.jpg',
-    link: '/partners/dri',
-    icon: <FaFlask size={24} />,
-    category: 'Research Institute',
-    location: 'Nevada',
-  },
-  {
-    id: 2,
-    name: 'UNLV',
-    description: 'Public research university with expertise in renewable energy, urban sustainability, and water resources.',
-    logo: '/logos/unlv-logo.jpg',
-    link: '/partners/unlv',
-    icon: <FaUniversity size={24} />,
-    category: 'Academic',
-    location: 'Las Vegas, NV',
-  },
-  {
-    id: 3,
-    name: 'Arizona State University',
-    description: 'Leading institution in sustainability science, renewable energy, and climate adaptation.',
-    logo: '/logos/asu-logo.jpg',
-    link: '/partners/asu',
-    icon: <FaUniversity size={24} />,
-    category: 'Academic',
-    location: 'Phoenix, AZ',
-  },
-  {
-    id: 4,
-    name: 'Coca-Cola',
-    description: 'Global beverage company with a focus on sustainable packaging and water conservation.',
-    logo: '/logos/coca-cola.jpg',
-    link: '/partners/coca-cola',
-    icon: <FaBuilding size={24} />,
-    category: 'Food & Beverage',
-    location: 'Atlanta, GA',
-  },
-  {
-    id: 5,
-    name: 'Chevron',
-    description: 'Energy corporation specializing in oil, natural gas, and geothermal energy production.',
-    logo: '/logos/chevron-logo.jpg',
-    link: '/partners/chevron',
-    icon: <FaBuilding size={24} />,
-    category: 'Energy',
-    location: 'San Ramon, CA',
-  },
-  {
-    id: 6,
-    name: 'NV Energy',
-    description: 'Utility company providing electricity and renewable energy services in Nevada.',
-    logo: '/logos/nv-energy-logo.jpg',
-    link: '/partners/nv-energy',
-    icon: <FaBuilding size={24} />,
-    category: 'Energy',
-    location: 'Las Vegas, NV',
-  },
-  {
-    id: 7,
-    name: 'Caesars Entertainment',
-    description: 'Hospitality company with a focus on sustainable operations and water conservation.',
-    logo: '/logos/caesars-logo.jpg',
-    link: '/partners/caesars',
-    icon: <FaCity size={23} />,
-    category: 'Hospitality',
-    location: 'Las Vegas, NV',
-  },
-  {
-    id: 8,
-    name: 'The University of Utah',
-    description: 'Public research university with expertise in environmental science and renewable energy.',
-    logo: '/logos/uofu-logo.jpg',
-    link: '/partners/uofu',
-    icon: <FaUniversity size={24} />,
-    category: 'Academic',
-    location: 'Salt Lake City, UT',
-  },
-  {
-    id: 9,
-    name: 'Zero Labs',
-    description: 'With a focus on innovation, Zero Labs works with a wide range of partners, from early-stage startups to Fortune 500 companies, to bring their ideas to life..',
-    logo: '/logos/zerolabs-logo.jpg',
-    link: '/partners/zerolabs',
-    icon: <FaCity size={23} />,
-    category: 'Private Sector',
-    location: 'Las Vegas, NV',
-  },
-  {
-    id: 10,
-    name: 'NVIDIA',
-    description: 'Technology company specializing in graphics processing units and artificial intelligence.',
-    logo: '/logos/nvidia-logo.jpg',
-    link: '/partners/nvidia',
-    icon: <FaBuilding size={24} />,
-    category: 'Technology',
-    location: 'Santa Clara, CA',
-  },
-  {
-    id: 11,
-    name: 'Starbucks',
-    description: 'Global coffee company with a focus on sustainable sourcing and waste reduction.',
-    logo: '/logos/starbucks.jpg',
-    link: '/partners/starbucks',
-    icon: <FaBuilding size={24} />,
-    category: 'Food & Beverage',
-    location: 'Seattle, WA',
-  },
-  {
-    id: 12,
-    name: 'Switch',
-    description: 'Data center company with a focus on renewable energy and sustainable operations.',
-    logo: '/logos/switch-logo.svg',
-    link: '/partners/switch',
-    icon: <FaBuilding size={24} />,
-    category: 'Technology',
-    location: 'Las Vegas, NV',
-  },
-  {
-    id: 13,
-    name: 'Arizona Public Service',
-    description: 'Utility company providing electricity and renewable energy services in Arizona.',
-    logo: '/logos/aps-logo.jpg',
-    link: '/partners/aps',
-    icon: <FaBuilding size={24} />,
-    category: 'Energy',
-    location: 'Phoenix, AZ',
-  },
-  {
-    id: 14,
-    name: 'State of Nevada',
-    description: 'Government agency focused on sustainability, water conservation, and renewable energy.',
-    logo: '/logos/nevada-logo.jpg',
-    link: '/partners/nevada',
-    icon: <FaBuilding size={24} />,
-    category: 'Government',
-    location: 'Carson City, NV',
-  },
-  {
-    id: 15,
-    name: 'City of Salt Lake City, UT',
-    description: 'Municipal government with a focus on sustainability, renewable energy, and urban planning.',
-    logo: '/logos/slc-logo.jpg',
-    link: '/partners/slc',
-    icon: <FaBuilding size={24} />,
-    category: 'Government',
-    location: 'Salt Lake City, UT',
-  },
-  {
-    id: 16,
-    name: 'State of Utah',
-    description: 'Government agency focused on sustainability, water conservation, and renewable energy.',
-    logo: '/logos/utah-logo.svg',
-    link: '/partners/utah',
-    icon: <FaBuilding size={24} />,
-    category: 'Government',
-    location: 'Salt Lake City, UT',
-  },
-  { 
-    id: 17,
-    name: 'City of Chandler, AZ',
-    description: 'Municipal government with a focus on sustainability, renewable energy, and urban planning.',
-    logo: '/logos/chandler-logo.jpg',
-    link: '/partners/chandler',
-    icon: <FaBuilding size={24} />,
-    category: 'Government',
-    location: 'Chandler, AZ',
-  },
-  {
-    id: 18,
-    name: 'Western Area Power Administration',
-    description: 'Federal agency managing power distribution in the Western U.S. with a focus on renewable energy.',
-    logo: '/logos/wapa-logo.jpg',
-    link: '/partners/wapa',
-    icon: <FaBuilding size={24} />,
-    category: 'Government',
-    location: 'Lakewood, CO',
-  },
-  {
-    id: 19,
-    name: 'The Water Research Foundation',
-    description: 'Nonprofit organization focused on water quality, conservation, and infrastructure research.',
-    logo: '/logos/wrf-logo.jpg',
-    link: '/partners/water-research',
-    icon: <FaFlask size={24} />,
-    category: 'Research Institute',
-    location: 'Denver, CO',
-  },
-  {
-    id: 20,
-    name: 'SciTech Institute',
-    description: 'Nonprofit organization supporting STEM education and workforce development in Arizona.',
-    logo: '/logos/scitech-logo.jpg',
-    link: '/partners/scitech',
-    icon: <FaUniversity size={24} />,
-    category: 'Nonprofit',
-    location: 'Phoenix, AZ',
-  },
-
-];
-
 export default function HomePage() {
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
-  const [filters, setFilters] = useState({
-    academic: false,
-    research: false,
-    government: false,
-    energy: false,
-    technology: false,
-    foodBeverage: false,
-    hospitality: false
-  });
+  const [filters, setFilters] = useState(defaultFilterState);
+  const [sortOption, setSortOption] = useState(""); // Default to empty string (no sorting)
   const [isLoaded, setIsLoaded] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const partnersPerPage = 9;
@@ -241,6 +30,20 @@ export default function HomePage() {
     console.log("HomePage component mounted");
   }, []);
   
+  // Move the debug log hook up here with the other hooks
+  useEffect(() => {
+    if (allPartners.length > 0 && allPartners[0].partneredSince) {
+      console.log("Test date parsing:", allPartners[0].partneredSince);
+      console.log("Month using imported function:", getMonth(allPartners[0].partneredSince));
+      console.log("Year using imported function:", getYear(allPartners[0].partneredSince));
+    }
+  }, []);
+  
+  // Reset to first page when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm, filters]);
+
   // Add these handler functions for the buttons
   const handleLearnMoreClick = () => {
     console.log("Learn More clicked - navigating to benefits page");
@@ -252,27 +55,8 @@ export default function HomePage() {
     router.push('/contact');
   };
   
-  // Filter partners based on search and category filters
-  const filteredPartners = allPartners.filter(partner => {
-    const matchesSearch = partner.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                       partner.description.toLowerCase().includes(searchTerm.toLowerCase());
-                       
-    const categoryFilters = {
-      academic: filters.academic && partner.category === "Academic",
-      research: filters.research && partner.category === "Research Institute",
-      government: filters.government && partner.category === "Government",
-      energy: filters.energy && partner.category === "Energy",
-      technology: filters.technology && partner.category === "Technology",
-      foodBeverage: filters.foodBeverage && partner.category === "Food & Beverage",
-      hospitality: filters.hospitality && partner.category === "Hospitality"
-    };
-    
-    // If no category filters are selected, show all; otherwise check if partner matches selected categories
-    const anyFilterSelected = Object.values(filters).some(value => value);
-    const matchesCategory = !anyFilterSelected || Object.values(categoryFilters).some(value => value);
-    
-    return matchesSearch && matchesCategory;
-  });
+  // Update to use the new filterAndSortPartners function
+  const filteredPartners = filterAndSortPartners(allPartners, searchTerm, filters, sortOption);
 
   // Handle filter changes
   const handleFilterChange = (filter) => {
@@ -282,18 +66,18 @@ export default function HomePage() {
     });
   };
   
-  // Reset all filters
+  // Handle sort option change
+  const handleSortChange = (option) => {
+    // If clicking the already selected option, clear it (toggle off)
+    setSortOption(prevOption => prevOption === option ? "" : option);
+    setCurrentPage(1); // Reset to first page when sorting changes
+  };
+
+  // Reset all filters and sorting
   const resetFilters = () => {
     setSearchTerm("");
-    setFilters({
-      academic: false,
-      research: false,
-      government: false,
-      energy: false,
-      technology: false,
-      foodBeverage: false,
-      hospitality: false
-    });
+    setFilters(defaultFilterState);
+    setSortOption(""); // Reset sorting too
   };
 
   const totalPages = Math.ceil(filteredPartners.length / partnersPerPage);
@@ -302,20 +86,30 @@ export default function HomePage() {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
       // Scroll back to the top of the partners list
-      document.querySelector('.partners-list-header')?.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        document.querySelector('.partners-list-header')?.scrollIntoView({ behavior: 'smooth' });
+      }, 50);
     }
   };
   
   const handlePreviousPage = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
-      document.querySelector('.partners-list-header')?.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        document.querySelector('.partners-list-header')?.scrollIntoView({ behavior: 'smooth' });
+      }, 50);
     }
   };
   
   const handlePageClick = (page) => {
     setCurrentPage(page);
-    document.querySelector('.partners-list-header')?.scrollIntoView({ behavior: 'smooth' });
+    // Add a small delay to ensure state updates before scrolling
+    setTimeout(() => {
+      const header = document.querySelector('.partners-list-header');
+      if (header) {
+        header.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 50);
   };
   
   // Calculate which partners to display on the current page
@@ -323,44 +117,7 @@ export default function HomePage() {
   const indexOfFirstPartner = indexOfLastPartner - partnersPerPage;
   const currentPartners = filteredPartners.slice(indexOfFirstPartner, indexOfLastPartner);
   
-  // Reset to first page when filters change
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [searchTerm, filters]);
-
-  // Calculate category counts dynamically based on current partners
-  const getCategoryCounts = () => {
-    const counts = {
-      academic: 0,
-      research: 0,
-      government: 0,
-      energy: 0,
-      technology: 0,
-      foodBeverage: 0,
-      hospitality: 0
-    };
-    
-    allPartners.forEach(partner => {
-      if (partner.category === "Academic") {
-        counts.academic++;
-      } else if (partner.category === "Research Institute") {
-        counts.research++;
-      } else if (partner.category === "Government") {
-        counts.government++;
-      } else if (partner.category === "Energy") {
-        counts.energy++;
-      } else if (partner.category === "Technology") {
-        counts.technology++;
-      } else if (partner.category === "Food & Beverage") {
-        counts.foodBeverage++;
-      } else if (partner.category === "Hospitality") {
-        counts.hospitality++;
-      }
-    });
-    
-    return counts;
-  };
-  
+  // Use the imported getCategoryCounts function
   const categoryCounts = getCategoryCounts();
 
   if (!isLoaded) {
@@ -569,6 +326,83 @@ export default function HomePage() {
                   <span className="filter-label">Hospitality</span>
                   <span className="filter-count">{categoryCounts.hospitality}</span>
                 </label>
+                
+                {/* Add Nonprofit filter */}
+                <label className="custom-checkbox">
+                  <input 
+                    type="checkbox"
+                    checked={filters.nonprofit}
+                    onChange={() => handleFilterChange('nonprofit')}
+                  />
+                  <span className="checkmark"></span>
+                  <span className="filter-label">Nonprofit</span>
+                  <span className="filter-count">{categoryCounts.nonprofit}</span>
+                </label>
+
+                {/* Add Private Sector filter */}
+                <label className="custom-checkbox">
+                  <input 
+                    type="checkbox"
+                    checked={filters.privateSector}
+                    onChange={() => handleFilterChange('privateSector')}
+                  />
+                  <span className="checkmark"></span>
+                  <span className="filter-label">Private Sector</span>
+                  <span className="filter-count">{categoryCounts.privateSector}</span>
+                </label>
+              </div>
+            </div>
+            
+            {/* Update the sort section */}
+            <div className="filter-category">
+              <div className="filter-category-title">
+                <FaSortAmountDown /> Sort By
+              </div>
+              <div className="filter-options sort-options">
+                {/* Remove the Default option */}
+                <label className="custom-radio">
+                  <input 
+                    type="radio"
+                    checked={sortOption === SORT_OPTIONS.DATE_NEWEST}
+                    onChange={() => handleSortChange(SORT_OPTIONS.DATE_NEWEST)}
+                    name="sortOption"
+                  />
+                  <span className="radio-checkmark"></span>
+                  <span className="filter-label">Newest Partners</span>
+                </label>
+                
+                <label className="custom-radio">
+                  <input 
+                    type="radio"
+                    checked={sortOption === SORT_OPTIONS.DATE_OLDEST}
+                    onChange={() => handleSortChange(SORT_OPTIONS.DATE_OLDEST)}
+                    name="sortOption"
+                  />
+                  <span className="radio-checkmark"></span>
+                  <span className="filter-label">Longest Partnerships</span>
+                </label>
+                
+                <label className="custom-radio">
+                  <input 
+                    type="radio"
+                    checked={sortOption === SORT_OPTIONS.NAME_ASC}
+                    onChange={() => handleSortChange(SORT_OPTIONS.NAME_ASC)}
+                    name="sortOption"
+                  />
+                  <span className="radio-checkmark"></span>
+                  <span className="filter-label">Name (A-Z)</span>
+                </label>
+                
+                <label className="custom-radio">
+                  <input 
+                    type="radio"
+                    checked={sortOption === SORT_OPTIONS.NAME_DESC}
+                    onChange={() => handleSortChange(SORT_OPTIONS.NAME_DESC)}
+                    name="sortOption"
+                  />
+                  <span className="radio-checkmark"></span>
+                  <span className="filter-label">Name (Z-A)</span>
+                </label>
               </div>
             </div>
             
@@ -614,7 +448,15 @@ export default function HomePage() {
                       </div>
                       
                       <div className="partner-card-body">
-                        <span className="partner-category">{partner.category}</span>
+                        <div className="partner-metadata">
+                          <span className="partner-category">{partner.category}</span>
+                          {partner.partneredSince && (
+                            <span className="partner-date">
+                              <FaCalendarAlt size={14} />
+                              <span>Partner since {getMonth(partner.partneredSince)}{getYear(partner.partneredSince)}</span>
+                            </span>
+                          )}
+                        </div>
                         <p className="partner-description">{partner.description}</p>
                       </div>
                       

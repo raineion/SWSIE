@@ -482,13 +482,22 @@
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
 }
 
+/* Ensure partner card header has proper alignment */
 .partner-card-header {
   display: flex;
   align-items: center;
   padding: 20px;
   border-bottom: 1px solid #f0f0f0;
+  gap: 15px; /* Use gap for consistent spacing */
 }
 
+/* Make logo container slightly larger for better visibility */
+.partner-card-header .partner-logo-container {
+  width: 70px; /* Increased from 60px */
+  height: 70px; /* Increased from 60px */
+}
+
+/* Improve partner logo display in the grid */
 .partner-logo-container {
   position: relative;
   width: 60px;
@@ -500,13 +509,18 @@
   justify-content: center;
   margin-right: 15px;
   overflow: hidden;
+  padding: 5px; /* Add padding to prevent logos from touching the edges */
 }
 
+/* Fix for logos in partner cards */
 .partner-logo {
-  max-width: 85%;
-  max-height: 85%;
+  max-width: 90%; /* Increase from 80%/85% to 90% */
+  max-height: 90%; /* Increase from 80%/85% to 90% */
   object-fit: contain;
+  object-position: center; /* Ensure image is centered */
   z-index: 1;
+  display: block; /* Ensure it's a block element for proper centering */
+  margin: 0 auto; /* Center horizontally */
 }
 
 .partner-icon-fallback {
@@ -532,33 +546,43 @@
   font-size: 24px;
 }
 
+/* Fix partner name margins and width */
 .partner-name {
   font-size: 1.3rem;
   font-weight: 600;
   color: #333;
+  margin: 0; /* Remove any default margins */
+  flex: 1; /* Allow name to take remaining space */
+  overflow-wrap: break-word; /* Allow long names to wrap */
+  word-break: break-word;
 }
 
 .partner-card-body {
-  padding: 20px;
+  padding: 16px; /* Reduce from 20px for more compact layout */
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
 
 .partner-category {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   background-color: #e8f2ff;
   color: #0066cc;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 0.9rem;
+  padding: 3px 8px; /* Match partner-date padding */
+  border-radius: 12px; /* Match partner-date radius */
+  font-size: 0.75rem; /* Match partner-date font size */
   font-weight: 500;
-  margin-bottom: 15px;
+  height: 22px; /* Fixed height for consistency */
+  margin-bottom: 0; /* Remove bottom margin - controlled by parent now */
+  white-space: nowrap;
+  line-height: 1;
 }
 
 .partner-description {
   color: #555;
   line-height: 1.6;
+  margin-top: 8px; /* Add top margin for spacing from badges */
   margin-bottom: 20px;
   flex-grow: 1;
 }
@@ -933,4 +957,122 @@
     font-size: 1.4rem;
     text-align: center;
   }
+}
+
+/* Partner metadata layout - updated */
+.partner-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px; /* Reduce gap from 10px to 8px */
+  margin-bottom: 12px; /* Reduce margin from 15px */
+  width: 100%;
+  align-items: center;
+}
+
+/* Style for the partnered since date - make smaller and more consistent */
+.partner-date {
+  display: inline-flex;
+  align-items: center;
+  background-color: #f0f4f8;
+  color: #555;
+  padding: 3px 8px; /* Reduce padding from 5px 10px */
+  border-radius: 12px; /* Smaller radius */
+  font-size: 0.75rem; /* Reduce from 0.9rem */
+  font-weight: 500;
+  height: 22px; /* Fixed height for consistency */
+  white-space: nowrap; /* Prevent wrapping within badge */
+  line-height: 1; /* Tighter line height */
+}
+
+.partner-date svg {
+  margin-right: 4px; /* Reduce from 6px */
+  color: #0066cc;
+  font-size: 12px; /* Size explicitly to match reduced badge size */
+  min-width: 12px; /* Force consistent width */
+}
+
+/* Make category badge also consistent with date badge */
+.partner-category {
+  display: inline-flex;
+  align-items: center;
+  background-color: #e8f2ff;
+  color: #0066cc;
+  padding: 3px 8px; /* Match partner-date padding */
+  border-radius: 12px; /* Match partner-date radius */
+  font-size: 0.75rem; /* Match partner-date font size */
+  font-weight: 500;
+  height: 22px; /* Fixed height for consistency */
+  margin-bottom: 0; /* Remove bottom margin - controlled by parent now */
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* Ensure partner description has space from the badges */
+.partner-description {
+  color: #555;
+  line-height: 1.6;
+  margin-top: 8px; /* Add top margin for spacing from badges */
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+/* Radio button styling for sort options */
+.sort-options {
+  margin-bottom: 20px;
+}
+
+.custom-radio {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  user-select: none;
+}
+
+.custom-radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.radio-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #f0f0f0;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+}
+
+.custom-radio:hover input ~ .radio-checkmark {
+  background-color: #e6e6e6;
+}
+
+.custom-radio input:checked ~ .radio-checkmark {
+  background-color: white;
+  border-color: #0066cc;
+}
+
+.radio-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #0066cc;
+  transform: translate(-50%, -50%);
+}
+
+.custom-radio input:checked ~ .radio-checkmark:after {
+  display: block;
 }

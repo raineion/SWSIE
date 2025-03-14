@@ -5,7 +5,7 @@ export default function PartnerDetail() {
     <div className="partner-detail">
       <div className="partner-header">
         <img 
-          src="/logos/company-a-logo.jpg" 
+          src="/logos/dri-logo.jpg" 
           alt="Desert Research Institute Logo" 
           className="partner-logo"
         />

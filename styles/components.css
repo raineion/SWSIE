@@ -1,7 +1,9 @@
 /* Component styling */
 
 .prose .anchor {
-  @apply absolute invisible no-underline;
+  position: absolute;
+  visibility: hidden;
+  text-decoration: none;
   margin-left: -1em;
   padding-right: 0.5em;
   width: 80%;
@@ -10,46 +12,53 @@
 }
 
 .anchor:hover {
-  @apply visible;
+  visibility: visible;
 }
 
 .prose a {
-  @apply underline transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
+  text-decoration: underline;
+  transition: all;
+  text-decoration-color: #a3a3a3; /* neutral-400 */
+  text-underline-offset: 2px;
+  text-decoration-thickness: 0.1em;
 }
 
 .prose .anchor:after {
-  @apply text-neutral-300 dark:text-neutral-700;
+  color: #d4d4d4; /* neutral-300 */
   content: '#';
 }
 
 .prose *:hover > .anchor {
-  @apply visible;
+  visibility: visible;
 }
 
 .prose pre {
-  @apply bg-white border-gray-200;
   background-color: white !important;
+  border-color: #e5e5e5; /* gray-200 */
   color: black !important;
 }
 
 .prose code {
-  @apply px-1 py-0.5 rounded-lg;
+  padding: 0 0.25rem;
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+  border-radius: 0.5rem;
   background-color: white !important;
   color: black !important;
 }
 
 .prose pre code {
-  @apply p-0;
+  padding: 0;
   border: initial;
   line-height: 1.5;
 }
 
 .prose code span {
-  @apply font-medium;
+  font-weight: 500; /* medium */
 }
 
 .prose img {
-  @apply m-0;
+  margin: 0;
 }
 
 pre::-webkit-scrollbar {
