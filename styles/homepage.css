@@ -35,7 +35,6 @@
   -webkit-background-clip: unset;
   -webkit-text-fill-color: unset;
   background-clip: unset;
-  text-fill-color: unset;
   background: none;
   background-color: transparent !important;
 }
@@ -160,7 +159,6 @@
   -webkit-background-clip: unset;
   -webkit-text-fill-color: unset;
   background-clip: unset;
-  text-fill-color: unset;
   background: none;
   width: 100%;
   text-align: center;
@@ -201,13 +199,162 @@
 
 .contact-us-button:hover {
   transform: translateY(-5px);
-  background-color: #0055aa;
+  background-color: #0055aa !important; /* Ensure darker blue on hover with !important */
+  background: #0055aa !important; /* Add background shorthand with !important */
+  color: white !important; /* Ensure text stays white */
   box-shadow: 0 8px 22px rgba(0, 102, 204, 0.4);
 }
 
-.contact-us-button:active {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+.contact-us-button * {
+  color: white !important; /* Ensure all child elements stay white */
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Clickable box hover should not change button background */
+.clickable-box:hover .contact-us-button {
+  background-color: #0055aa !important; 
+  background: #0055aa !important;
+  color: white !important;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
+}
+
+/* Enhance Contact Us button - IMPORTANT OVERRIDE */
+.contact-us-button,
+button.contact-us-button,
+.become-partner-contact .contact-us-button {
+  background: #0066cc !important;
+  background-color: #0066cc !important;
+  color: white !important;
+  padding: 16px 32px;
+  border: none !important;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+.contact-us-button:hover,
+button.contact-us-button:hover,
+.become-partner-contact .contact-us-button:hover {
+  transform: translateY(-5px);
+  background-color: #0055aa !important;
+  background: #0055aa !important;
+  color: white !important;
+  box-shadow: 0 8px 22px rgba(0, 102, 204, 0.4);
+  border: none !important;
+}
+
+.contact-us-button *,
+button.contact-us-button *,
+.become-partner-contact .contact-us-button * {
+  color: white !important;
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Clickable box hover should not change button background */
+.clickable-box:hover .contact-us-button {
+  background-color: #0055aa !important; 
+  background: #0055aa !important;
+  color: white !important;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
+  border: none !important;
+}
+
+/* MAXIMUM SPECIFICITY CONTACT BUTTON STYLING */
+html body .contact-us-button,
+body .contact-us-button,
+.contact-us-button,
+button.contact-us-button,
+.become-partner-contact .contact-us-button,
+.box-content .contact-us-button,
+.centered-content .contact-us-button,
+div[class] button.contact-us-button,
+.become-partner-section .box-content button.contact-us-button,
+#__next .contact-us-button,
+[class*="become-partner"] [class*="contact-us-button"],
+.homepage-wrapper .become-partner-contact .contact-us-button,
+.permanent-blue-button,
+*[class*="contact-us-button"] {
+  background: #0066cc !important;
+  background-color: #0066cc !important;
+  color: white !important;
+  padding: 16px 32px;
+  border: none !important;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative;
+  z-index: 10;
+}
+
+/* Maximum specificity for hover state */
+html body .contact-us-button:hover,
+body .contact-us-button:hover,
+.contact-us-button:hover,
+button.contact-us-button:hover,
+.become-partner-contact .contact-us-button:hover,
+.box-content .contact-us-button:hover,
+.centered-content .contact-us-button:hover,
+div[class] button.contact-us-button:hover,
+.become-partner-section .box-content button.contact-us-button:hover,
+#__next .contact-us-button:hover,
+[class*="become-partner"] [class*="contact-us-button"]:hover,
+.homepage-wrapper .become-partner-contact .contact-us-button:hover,
+.permanent-blue-button:hover,
+*[class*="contact-us-button"]:hover {
+  transform: translateY(-5px);
+  background-color: #0055aa !important;
+  background: #0055aa !important;
+  color: white !important;
+  box-shadow: 0 8px 22px rgba(0, 102, 204, 0.4);
+  border: none !important;
+}
+
+/* Any child element styles with maximum specificity */
+html body .contact-us-button *,
+body .contact-us-button *,
+.contact-us-button *,
+button.contact-us-button *,
+.become-partner-contact .contact-us-button *,
+.box-content .contact-us-button *,
+.centered-content .contact-us-button *,
+div[class] button.contact-us-button *,
+.become-partner-section .box-content button.contact-us-button *,
+#__next .contact-us-button *,
+[class*="become-partner"] [class*="contact-us-button"] *,
+.homepage-wrapper .become-partner-contact .contact-us-button *,
+.permanent-blue-button *,
+*[class*="contact-us-button"] * {
+  color: white !important;
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Hover effect in clickable box */
+.clickable-box:hover .contact-us-button {
+  background-color: #0055aa !important; 
+  background: #0055aa !important;
+  color: white !important;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
+  border: none !important;
 }
 
 /* Partners list section */
@@ -459,12 +606,16 @@
   font-weight: 600;
 }
 
+/* Ensure grid has consistent cell sizing */
 .partners-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 25px;
+  width: 100%;
+  margin-bottom: 30px;
 }
 
+/* Fix partner card styling to ensure proper alignment and containment */
 .partner-card-item {
   background-color: white;
   border-radius: 12px;
@@ -475,41 +626,84 @@
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  height: 100%;
+  position: relative;
+  margin-bottom: 0;
+  max-width: 100%;
 }
 
-.partner-card-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
-}
-
-/* Ensure partner card header has proper alignment */
+/* Ensure card header has proper alignment */
 .partner-card-header {
   display: flex;
   align-items: center;
   padding: 20px;
   border-bottom: 1px solid #f0f0f0;
-  gap: 15px; /* Use gap for consistent spacing */
+  gap: 15px;
+  background-color: white;
+  width: 100%;
 }
 
-/* Make logo container slightly larger for better visibility */
-.partner-card-header .partner-logo-container {
-  width: 70px; /* Increased from 60px */
-  height: 70px; /* Increased from 60px */
+/* Fix card body to take appropriate space */
+.partner-card-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  flex: 1;
+  overflow: hidden;
+  width: 100%;
 }
 
-/* Improve partner logo display in the grid */
+/* Ensure footer stays at the bottom */
+.partner-card-footer {
+  padding: 15px 20px;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  width: 100%;
+  margin-top: auto;
+}
+
+/* Make description take available space but not overflow */
+.partner-description {
+  color: #555;
+  line-height: 1.6;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  flex-grow: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4; /* Standard property for compatibility */
+  -webkit-box-orient: vertical;
+}
+
+/* Fix the view details link */
+.partner-view-link {
+  color: #0066cc;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
 .partner-logo-container {
   position: relative;
-  width: 60px;
-  height: 60px;
+  width: 70px;  /* Consistent width */
+  height: 70px;  /* Consistent height */
   border-radius: 10px;
-  background-color: #f8f8f8;
+  background-color: #f8f8f8;  /* Light grey background for logos */
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 15px;
   overflow: hidden;
   padding: 5px; /* Add padding to prevent logos from touching the edges */
+  flex-shrink: 0;  /* Prevent shrinking */
 }
 
 /* Fix for logos in partner cards */
@@ -562,6 +756,7 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  background-color: white;  /* Ensure white background */
 }
 
 .partner-category {
@@ -593,6 +788,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: white;  /* Ensure white background */
 }
 
 .partner-location {
@@ -613,6 +809,7 @@
   text-decoration: none;
   display: flex;
   align-items: center;
+  white-space: nowrap;
 }
 
 .partner-view-link svg {
@@ -716,7 +913,9 @@
 }
 
 .clickable-box:hover .contact-us-button {
-  background-color: #0055aa;
+  background-color: #0055aa !important; 
+  background: #0055aa !important;
+  color: white !important;
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
 }
@@ -834,129 +1033,105 @@
 
 /* Updated header styling */
 .header-wrapper {
-  position: absolute;
-  top: 20px;
-  left: 20px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  z-index: 10;
-  background-color: transparent; /* Changed from white to transparent */
-  padding: 15px 20px;
+  background-color: white;
+  padding: 20px;
   border-radius: 16px;
-  box-shadow: none; /* Removed box shadow */
-  max-width: 90%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  overflow: visible;
 }
 
-/* Add background just to the logo container */
+/* Adjust logo container for consistent sizing */
 .logo-container {
   flex-shrink: 0;
-  width: 80px;
-  height: 80px;
+  width: 70px !important;
+  height: 70px !important;
   border-radius: 10px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white; /* White background just for the logo */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Shadow just for logo */
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* Make separator even longer */
+.logo-container img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Updated separator styling */
 .header-separator {
-  height: 80px; /* Increased from 60px to 80px for a longer line */
-  width: 2px;
-  background-color: #aaa;
-  margin: 0 15px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-}
-
-/* Adjust the vertical line character to match new height */
-.header-separator::after {
-  content: '|';
-  position: absolute;
+  margin: 0 15px;
   color: #777;
-  font-size: 32px; /* Increased from 28px to 32px */
+  font-size: 32px;
   font-weight: 200;
   line-height: 0;
-  opacity: 0.8;
+  flex-shrink: 0;
 }
 
-/* Title container for hierarchical layout */
+/* Remove the old separator ::after styling that we don't need anymore */
+.header-separator::after {
+  content: none;
+}
+
+/* Balanced separator */
+.header-separator {
+  height: 50px;
+  width: 2px;
+  background-color: #e0e0e0;
+  margin: 0 15px;
+  flex-shrink: 0;
+}
+
+/* Title container for better centering */
 .title-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-left: 2px; /* Add a tiny bit of left margin */
-  gap: 2px; /* Add a small consistent gap */
+  overflow: visible;
 }
 
 /* Smaller top title */
 .swsie-title-small {
-  font-size: 1rem; /* Increased from 0.9rem to 1rem */
+  font-size: 0.9rem;
   font-weight: 500;
-  color: #333; /* Darker color for better visibility on transparent background */
-  margin-bottom: 1px; /* Reduced from 4px to 1px for tighter spacing */
+  color: #666;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  line-height: 1; /* Add tight line height */
-  text-shadow: 0 1px 1px rgba(255,255,255,0.7); /* Optional text shadow for legibility */
+  margin: 0;
+  padding: 0;
 }
 
-/* Main large title */
+/* Main title styling */
 .swsie-title-large {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #0066cc;
-  margin: 0;
-  line-height: 1.2; /* Reduce from 1.3 to 1.2 to match h1 */
+  width: 100%;
 }
 
 .swsie-title-large h1 {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  color: #222; /* Darker color for better visibility */
-  margin: 0;
+  color: #222;
+  margin: 3px 0 0;
   padding: 0;
-  line-height: 1.2; /* Reduce from 1.3 to 1.2 for tighter spacing */
-  text-shadow: 0 1px 1px rgba(255,255,255,0.7); /* Optional text shadow for legibility */
+  line-height: 1.2;
 }
 
-/* Subtitle */
-.swsie-subtitle {
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: #333;
-  margin-top: 3px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .header-wrapper {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .header-separator {
-    display: none;
-  }
-  
-  .title-container {
-    align-items: center;
-    margin-top: 15px;
-  }
-  
-  .swsie-title-large {
-    font-size: 1.4rem;
-  }
-
-  .swsie-title-large h1 {
-    font-size: 1.4rem;
-    text-align: center;
-  }
+/* Fix analytics link to not crowd the title */
+.analytics-link {
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 /* Partner metadata layout - updated */
@@ -1075,4 +1250,109 @@
 
 .custom-radio input:checked ~ .radio-checkmark:after {
   display: block;
+}
+
+@media (max-width: 768px) {
+  .header-wrapper {
+    flex-direction: column;
+    padding: 15px;
+  }
+  
+  .header-wrapper > div:first-child {
+    margin-right: 0;
+    margin-bottom: 15px;
+    max-width: 100%;
+  }
+  
+  .header-wrapper > div:last-child {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Ensure consistent styling for carousel section */
+.carousel-section {
+  background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fd 50%, #d4e6ff 100%);
+  border-radius: 16px;
+}
+
+/* Make sure the carousel cards have proper styling */
+.carousel-section .partner-card {
+  background-color: white;
+}
+
+/* Updated header navigation styles */
+.headerNavigation {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+  margin-top: 15px;
+}
+
+.navTab {
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  color: #555;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  background-color: #f8f9fa;
+  border: 1px solid transparent;
+}
+
+.navTab:hover {
+  background-color: #f0f7ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 102, 204, 0.15);
+  border-color: rgba(0, 102, 204, 0.1);
+}
+
+.navTab.active {
+  color: #0066cc;
+  font-weight: 600;
+  background-color: #e6f2ff;
+  border-color: rgba(0, 102, 204, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+}
+
+.tabIndicator {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #0066cc;
+  border-radius: 3px;
+}
+
+.tabIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+}
+
+.tabText {
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .headerNavigation {
+    overflow-x: auto;
+    padding-bottom: 5px;
+  }
+  
+  .navTab {
+    white-space: nowrap;
+  }
 }

@@ -1,14 +1,16 @@
-/* Simplified carousel with blue and white color scheme */
+/* NUCLEAR OPTION: DELETE EVERYTHING AND START FRESH */
+
+/* ===== BLUE CAROUSEL BACKGROUND ===== */
 .carousel-section {
+  padding: 50px 80px 70px !important; /* Increase horizontal padding from 60px to 80px */
+  margin: 80px 0;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fd 50%, #d4e6ff 100%);
   position: relative;
   width: 100%;
-  padding: 50px 20px;
-  margin: 60px 0;
-  background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fd 50%, #d4e6ff 100%); /* Soft blue gradient */
-  border-radius: 16px;
-  overflow: hidden;
+  overflow: visible !important; /* Ensure overflow is visible for buttons */
   box-shadow: 0 10px 30px rgba(0, 102, 204, 0.1);
-  border: none;
+  position: relative !important;
 }
 
 .carousel-section::before {
@@ -18,310 +20,560 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5z' fill='%230066cc' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
   opacity: 0.7;
   z-index: -1;
 }
 
-/* Create an infinite scrolling carousel */
-.carousel-container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  padding: 40px 0;
-  cursor: grab;
-  background: transparent !important;
-  scroll-behavior: auto !important; /* Prevent smooth scrolling which would interfere with animation */
-  overflow: hidden;
-  width: 100%;
-  position: relative;
-  scroll-behavior: auto;
-}
-
-/* Optimize carousel for smoother rendering */
-.carousel-container {
-  overflow: hidden;
-  width: 100%;
-  position: relative;
-  padding: 40px 0;
-}
-
-.carousel-container:active {
-  cursor: grabbing;
-}
-
-/* The inner container for the infinite slider */
+/* ===== TRANSPARENT CONTAINERS ===== */
+.carousel-container, 
 .carousel-inner {
-  display: flex;
-  gap: 25px !important; /* Increased from 15px for better spacing */
-  width: max-content;
-  padding: 0 40px;
+  background-color: transparent !important;
   background: transparent !important;
-  will-change: transform;
-  padding: 20px 0;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
 }
 
-/* Hardware acceleration for the inner carousel */
-.carousel-inner {
-  display: flex;
-  width: max-content;
-  padding: 20px 0;
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-}
-
-.carousel-inner:hover {
-  animation-play-state: paused;
-}
-
-/* Remove the custom animation definitions as we'll handle with JS */
-
-/* Section title in blue */
-.section-title {
-  color: #0066cc;
-  text-align: left;
-  font-size: 2rem;
-  margin-bottom: 30px;
-  font-weight: 700;
-  padding-left: 20px;
-  text-shadow: none;
-}
-
-/* Make partner cards clearly portrait-oriented */
+/* ===== WHITE CARD BACKGROUNDS ===== */
 .partner-card {
-  min-width: 160px !important; /* Force narrower width */
-  width: 220px !important; /* Fixed width to ensure consistency */
-  height: 360px !important; /* Taller height for distinct portrait look */
-  background-color: white;
+  min-width: 240px !important; /* Reduced from 300px */
+  width: 240px !important; /* Reduced from 300px */
+  height: 400px !important; /* Reduced from 450px */
+  background-color: white !important;
+  background: white !important;
   border-radius: 10px;
   padding: 15px !important;
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Start content from top */
-  align-items: center; /* Center all content horizontally */
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 102, 204, 0.1);
-  text-align: center; /* Center text */
-  overflow: visible !important; /* Allow text to be fully visible */
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15) !important;
+  border: 1px solid rgba(0, 102, 204, 0.1) !important;
+  text-align: center !important;
+  overflow: hidden !important;
+  position: relative !important;
+  z-index: 1 !important;
+  margin: 0 !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .partner-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 30px rgba(0, 102, 204, 0.15);
-  border-color: rgba(0, 102, 204, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 102, 204, 0.2) !important;
+  z-index: 5 !important;
 }
 
-/* Full-width column layout for card headers */
+.partner-card * {
+  background-color: white !important;
+  background: white !important;
+  color: black !important;
+}
+
+/* More specific partner card styling to keep them white */
+.partner-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: white !important;
+  z-index: -1;
+  border-radius: 9px;
+}
+
+/* Fix the overly aggressive element targeting */
+[style]:not(.partner-card):not(.partner-card *),
+div[style]:not(.partner-card):not(.partner-card *) {
+  background-color: initial !important;
+  background: initial !important;
+}
+
+/* ===== CARD HEADER ===== */
 .card-header {
   display: flex !important;
   flex-direction: column !important;
   width: 100% !important;
   align-items: center !important;
   margin-bottom: 15px !important;
+  background-color: white !important;
+  padding: 0 !important;
+  border: none !important;
+  position: relative !important;
+  z-index: 4 !important;
 }
 
-/* Centered heading text */
-.card-title {
-  width: 100% !important;
-  font-size: 1.2rem !important; /* Slightly larger */
-  font-weight: 700 !important; /* Bolder weight */
-  color: black !important; /* Blue color to match theme */
-  margin: 5px 0 12px 0 !important; /* Add margin above and below */
-  text-align: center !important;
-  line-height: 1.3 !important; /* Better readability */
-  height: auto !important; /* Remove fixed height */
-  min-height: 40px !important; /* Ensure minimum space */
+/* ===== CARD LOGO ===== */
+.card-logo-container {
+  width: 70px !important; /* Reduced from 80px */
+  height: 70px !important; /* Reduced from 80px */
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  white-space: normal !important; /* Allow text wrapping */
-  overflow: visible !important; /* Don't clip text */
-  text-overflow: clip !important;
-  overflow-wrap: break-word !important; /* Allow word breaks */
+  background-color: white !important;
+  border-radius: 8px !important;
+  padding: 5px !important;
+  margin: 0 auto 12px auto !important;
+  overflow: hidden !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+  border: 1px solid #f0f0f0 !important;
 }
 
-/* Centered description text */
+.card-logo {
+  max-width: 80% !important;
+  max-height: 80% !important;
+  object-fit: contain !important;
+  pointer-events: none;
+}
+
+/* ===== CARD TITLE ===== */
+.card-title {
+  width: 100% !important;
+  font-size: 1.1rem !important; /* Reduced from 1.2rem */
+  font-weight: 600 !important;
+  color: black !important;
+  margin: 5px 0 12px 0 !important;
+  text-align: center !important;
+  min-height: 50px !important; /* Reduced from 60px */
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+/* ===== CARD DESCRIPTION ===== */
 .card-description {
   text-align: center !important;
-  margin-bottom: 20px !important;
+  margin: 10px 0 15px 0 !important;
+  padding-top: 10px !important;
+  border-top: 1px solid #f0f0f0 !important;
+  max-height: 160px !important; /* Reduced from 180px */
+  overflow: hidden !important;
+  flex-grow: 1 !important;
+  width: 100% !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 8 !important; /* Reduced from 10 lines */
+  -webkit-box-orient: vertical !important;
   font-size: 0.9rem !important;
-  margin-top: 10px !important; /* Consistent top margin */
-  padding-top: 10px !important; /* Add padding at top */
-  border-top: 1px solid #f0f0f0 !important; /* Add subtle separator */
+  line-height: 1.5 !important;
+  color: black !important;
+  background-color: white !important;
 }
 
-/* Bottom-aligned button */
+/* ===== CARD BUTTON ===== */
+.card-button-container {
+  padding: 0 !important;
+  margin-top: auto !important;
+  width: 100% !important;
+  position: relative !important;
+  z-index: 4 !important;
+}
+
 .card-button {
   width: 100% !important;
   margin-top: auto !important;
-}
-
-/* Larger, centered logo container */
-.card-logo-container {
-  width: 80px !important; /* Make logo larger and prominent */
-  height: 80px !important;
-  margin: 0 auto 15px auto !important; /* Center horizontally with bottom margin */
-  border-radius: 50% !important; /* Make it circular */
-  padding: 10px !important;
-  margin-bottom: 5px !important; /* Reduce space below logo */
-  flex-shrink: 0 !important; /* Prevent shrinking */
-}
-
-.card-icon-container {
-  width: 56px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  margin-right: 20px;
-  color: white;
-  background-color: #0066cc !important;
-}
-
-.card-icon-container.with-logo {
-  width: 40px;
-  height: 40px;
-  margin-right: 15px;
-}
-
-.card-icon-container.show-icon {
-  display: flex;
-}
-
-/* Adjust title for vertical layout */
-.card-title {
-  font-size: 1.1rem; /* Slightly smaller */
-  font-weight: 600;
-  color: #333;
-  flex: 1;
-  margin-left: 0; /* Remove left margin */
-  margin-top: 5px; /* Add top margin */
-  text-align: center;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;  /* Limit to 2 lines */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Adjust description to fit vertical layout better */
-.card-description {
-  flex-grow: 1;
-  font-size: 0.9rem; /* Further reduced from 0.95rem */
-  color: #555;
-  line-height: 1.5;
-  margin-bottom: 15px; /* Reduced from 24px */
-  display: -webkit-box;
-  -webkit-line-clamp: 8; /* Allow more lines since card is taller */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Keep button at bottom with consistent style */
-.card-button {
-  border: none;
-  border-radius: 6px; /* Reduced from 8px */
-  padding: 8px 0; /* Reduced from 10px */
-  width: 100%;
-  font-weight: 600;
-  font-size: 0.9rem; /* Reduced from 0.95rem */
+  padding: 8px 10px !important; /* Reduced padding */
+  background: linear-gradient(135deg, #0066cc, #0077e6) !important;
   color: white !important;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-align: center;
-  background-color: #0066cc !important;
-  margin-top: auto; /* Push button to bottom */
+  border: none !important;
+  border-radius: 6px !important; /* Reduced radius */
+  font-weight: 600 !important;
+  font-size: 0.85rem !important; /* Slightly smaller font */
+  position: relative !important;
+  z-index: 5 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  transition: all 0.2s ease !important; /* Faster transition */
+  letter-spacing: 0.2px !important; /* Reduced letter spacing */
+  box-shadow: 0 3px 8px rgba(0, 102, 204, 0.2) !important; /* Smaller shadow */
 }
 
 .card-button:hover {
-  background-color: #0055aa !important;
+  background-color: #0055aa !important; /* Darker blue on hover */
 }
 
-/* Center the logo in vertical layout */
-.card-logo-container {
-  width: 60px; /* Slightly larger than before */
-  height: 60px; /* Keep square */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  border-radius: 8px; /* Reduced from 10px */
-  padding: 5px; /* Reduced from 8px */
-  margin-right: 0; /* Remove margin since it's now centered */
-  margin-bottom: 12px; /* Add bottom margin to separate from title */
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  border: 1px solid #f0f0f0;
+/* ===== ICON STYLING ===== */
+.card-icon-container {
+  background-color: #0066cc !important;
+  color: white !important;
 }
 
 .card-logo-container.show-icon {
-  /* When we need to show the icon instead of the logo */
-  background-color: #0066cc;
-  color: white;
-  padding: 0;
+  background-color: #0066cc !important;
+  color: white !important;
 }
 
-/* Hidden class to properly hide elements */
-.hidden {
+/* ===== CAROUSEL LAYOUT ===== */
+.carousel-inner {
+  display: flex;
+  gap: 25px;
+  padding: 0 20px; /* Add horizontal padding to inner content */
+  padding-bottom: 20px; /* Add padding to prevent cut-off shadow */
+  width: max-content; /* Ensure it takes the full width of its children */
+}
+
+.section-title {
+  color: #0066cc !important; /* Force blue with !important */
+  font-size: 2rem;
+  margin-bottom: 40px;
+  font-weight: 700;
+  padding-left: 30px;
+  background: none !important; /* Ensure no background interferes */
+  background-color: transparent !important;
+}
+
+/* Add styles for the carousel navigation controls */
+
+/* Carousel arrows and container styling */
+.carousel-controls {
+  position: relative;
+  width: 100%;
+  display: block; /* Changed from flex to block */
+  isolation: isolate; /* Create stacking context */
+  contain: none; /* Change from 'content' to 'none' */
+  padding: 0; /* Remove padding */
+  overflow: visible; /* Allow buttons to be visible */
+  margin: 0 auto;
+  max-width: calc(100% - 80px) !important; /* Create space for the buttons by limiting content width */
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  position: static !important; /* Remove relative positioning */
+}
+
+/* Unhide the carousel arrows and style them properly */
+.carousel-arrow {
+  display: flex !important; /* Override the previous hide rule */
+  align-items: center;
+  justify-content: center;
+  width: 45px !important;
+  height: 45px !important;
+  border-radius: 50%;
+  background: white !important;
+  border: none;
+  box-shadow: 0 6px 16px rgba(0, 102, 204, 0.15) !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #0066cc !important;
+  font-size: 16px;
+  z-index: 50 !important; /* Increased z-index */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  /* Ensure buttons stay inside the container */
+  margin: 0;
+  position: absolute !important;
+  z-index: 100 !important; /* Ensure highest z-index */
+  width: 45px !important;
+  height: 45px !important;
+}
+
+.carousel-arrow-left {
+  left: -35px !important; /* Move further left from -22px */
+  left: 20px !important; /* Position relative to carousel-section */
+}
+
+.carousel-arrow-right {
+  right: -35px !important; /* Move further right from -22px */
+  right: 20px !important; /* Position relative to carousel-section */
+}
+
+.carousel-arrow:hover {
+  background: rgba(255, 255, 255, 1) !important;
+  box-shadow: 0 8px 20px rgba(0, 102, 204, 0.2) !important;
+  transform: translateY(-50%) scale(1.05); /* Reduce scale for better containment */
+}
+
+.carousel-arrow:active {
+  transform: translateY(-50%) scale(0.96);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15) !important;
+}
+
+.carousel-arrow:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.3), 0 6px 16px rgba(0, 102, 204, 0.2) !important;
+}
+
+.carousel-arrow svg {
+  position: relative;
+  color: #0066cc !important;
+  font-size: 16px !important;
+  fill: currentColor !important;
+  background: transparent !important;
+  z-index: 2;
+}
+
+/* Add subtle light effect on hover */
+.carousel-arrow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.carousel-arrow:hover::before {
+  opacity: 1;
+}
+
+/* Make buttons more visible on mobile */
+@media (max-width: 768px) {
+  .carousel-arrow {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 14px;
+    margin: 0 5px; /* Reduced margin */
+  }
+  
+  .carousel-arrow-left {
+    left: -20px !important;
+  }
+  
+  .carousel-arrow-right {
+    right: -20px !important;
+  }
+  
+  .carousel-controls {
+    padding: 0 15px; /* Reduced padding */
+    max-width: calc(100% - 60px) !important;
+  }
+}
+
+/* Make the carousel draggable with visual cues */
+.carousel-container {
+  width: 100%;
+  overflow-x: auto;
+  padding: 20px 0; /* Remove horizontal padding */
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  scroll-behavior: smooth;
+  cursor: grab;
+  position: relative;
+  margin: 0; /* Remove margin */
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+.carousel-container:active {
+  cursor: grabbing;
+}
+
+/* Remove the new selectors that might be causing conflicts */
+.carousel-inner::before,
+.carousel-inner::after {
   display: none !important;
+  content: none !important;
 }
 
+/* Ensure images can't be dragged */
+.card-logo {
+  /* ...existing code... */
+  pointer-events: none;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
 @media (max-width: 768px) {
   .partner-card {
-    min-width: 160px;
-    height: 340px; /* Back to taller on mobile for better visibility */
+    min-width: 220px !important; /* Reduced from 280px */
+    width: 220px !important;
+    height: 380px !important; /* Reduced from 450px */
+  }
+
+  .carousel-section {
+    padding: 40px 50px 60px !important; /* Adjust padding for small screens */
+    margin: 60px 0;
+  }
+  
+  .carousel-container {
+    padding: 40px 0; /* Less padding on mobile */
+  }
+
+  .carousel-arrow {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 14px;
+  }
+  
+  .carousel-arrow-left {
+    left: -25px !important;
+  }
+  
+  .carousel-arrow-right {
+    right: -25px !important;
+  }
+  
+  .carousel-controls {
+    padding: 0 40px;
+    max-width: calc(100% - 60px) !important;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+    padding-left: 15px;
   }
 }
 
-/* Add responsive sizing for different screen sizes */
-@media (max-width: 1600px) {
-  .partner-card {
-    min-width: 230px;
+@media (max-width: 480px) {
+  .carousel-arrow {
+    width: 35px !important;
+    height: 35px !important;
+    font-size: 12px;
   }
-}
-
-@media (max-width: 1400px) {
-  .partner-card {
-    min-width: 220px;
+  
+  .carousel-controls {
+    padding: 0 35px;
   }
-  .carousel-inner {
-    gap: 22px !important; /* Increased from 12px */
+  
+  .carousel-section {
+    padding: 30px 40px 50px !important; /* Further adjust padding for very small screens */
   }
-}
-
-@media (max-width: 1200px) {
-  .partner-card {
-    min-width: 160px; /* Even narrower on smaller screens */
+  
+  .carousel-arrow-left {
+    left: -20px !important;
+  }
+  
+  .carousel-arrow-right {
+    right: -20px !important;
   }
 }
 
 @media (max-width: 992px) {
-  .partner-card {
-    min-width: 150px;
-    height: 330px; /* Slightly shorter on smaller screens */
+  .carousel-section {
+    padding: 40px 60px 60px !important; /* Adjust padding for medium screens */
   }
-  .card-description {
-    font-size: 1rem;
+  
+  .carousel-arrow-left {
+    left: -30px !important;
+  }
+  
+  .carousel-arrow-right {
+    right: -30px !important;
   }
 }
 
-/* Force all cards to have the same responsive behavior */
-@media (max-width: 1600px), 
-       (max-width: 1400px), 
-       (max-width: 1200px), 
-       (max-width: 992px), 
-       (max-width: 768px) {
-  .partner-card {
-    min-width: 160px !important;
-    width: 160px !important;
-    height: 360px !important;
+/* Prevent browser paint thrashing by keeping elements stable */
+body {
+  /* New rule to prevent page-level layout shifts */
+  overflow-x: hidden; /* Prevent unwanted horizontal scrolling */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+
+/* Add GPU rasterization hint */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Force disable smooth scrolling for better performance */
+html {
+  scroll-behavior: auto !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
+
+/* Extra specific rule to ensure blue buttons */
+
+/* ...existing styles... */
+
+/* ===== CARD BUTTON - FORCE BLUE ===== */
+.card-button,
+button.card-button,
+.partner-card .card-button,
+.carousel-inner .partner-card .card-button {
+  width: 100% !important;
+  margin-top: auto !important;
+  padding: 8px 10px !important; /* Reduced padding */
+  background: linear-gradient(135deg, #0066cc, #0077e6) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 6px !important; /* Reduced radius */
+  font-weight: 600 !important;
+  font-size: 0.85rem !important; /* Slightly smaller font */
+  position: relative !important;
+  z-index: 5 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  transition: all 0.2s ease !important; /* Faster transition */
+  letter-spacing: 0.2px !important; /* Reduced letter spacing */
+  box-shadow: 0 3px 8px rgba(0, 102, 204, 0.2) !important; /* Smaller shadow */
+}
+
+/* Add a shine effect on hover */
+.card-button::before,
+button.card-button::before,
+.partner-card .card-button::before,
+.carousel-inner .partner-card .card-button::before {
+  content: "" !important;
+  position: absolute !important;
+  top: -50% !important;
+  left: -50% !important;
+  width: 200% !important;
+  height: 200% !important;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%, 
+    rgba(255, 255, 255, 0) 100%
+  ) !important;
+  transform: rotate(30deg) !important;
+  opacity: 0 !important;
+  transition: opacity 0.3s ease !important;
+  z-index: 0 !important;
+}
+
+/* Adjust mobile responsive styles */
+@media (max-width: 768px) {
+  .carousel-arrow {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 14px;
+    margin: 0 5px; /* Reduced margin */
+  }
+  
+  .carousel-arrow-left {
+    left: 0px; /* Keep button inside */
+  }
+  
+  .carousel-arrow-right {
+    right: 0px; /* Keep button inside */
+  }
+  
+  .carousel-controls {
+    padding: 0 15px; /* Reduced padding */
+  }
+}
+
+/* Force all elements inside button to be white text */
+.card-button *,
+button.card-button *,
+.partner-card .card-button *,
+.carousel-inner .partner-card .card-button * {
+  color: white !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  /* Ensure SVG icon background is transparent */
+  fill: white !important;
+}
+
+/* ...existing styles... */

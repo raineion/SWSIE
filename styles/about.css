@@ -1,0 +1,20 @@
+/* Focus area cards with instant hover effects */
+.focus-area-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition-delay: 0s !important;
+}
+
+.focus-area-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  border-color: #ffc107;
+  transition-delay: 0s !important;
+}
+
+/* Remove any animation delays */
+.focus-area-card *,
+.focus-area-card *::before,
+.focus-area-card *::after {
+  transition-delay: 0s !important;
+  animation-delay: 0s !important;
+}

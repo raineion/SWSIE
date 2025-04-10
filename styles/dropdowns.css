@@ -1,0 +1,281 @@
+/* Dropdown styling with solid backgrounds */
+
+/* Base dropdown container */
+.dropdown-container {
+  position: absolute;
+  background-color: white !important;
+  background: white !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(0, 102, 204, 0.3);
+  z-index: 999999;
+  overflow: hidden;
+  min-width: 180px;
+}
+
+/* Ensure dropdown options are solid */
+.dropdown-option {
+  padding: 12px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  background-color: white !important;
+  background: white !important;
+  color: #333;
+  font-weight: normal;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+}
+
+/* Selected option styling */
+.dropdown-option.selected {
+  background-color: #e6f0ff !important;
+  background: #e6f0ff !important;
+  color: #0066cc;
+  font-weight: 500;
+}
+
+/* Hover state */
+.dropdown-option:hover:not(.selected) {
+  background-color: #f0f7ff !important;
+  background: #f0f7ff !important;
+}
+
+/* Override any background transparency */
+.dropdown-container *,
+.dropdown-option * {
+  background-color: inherit !important;
+}
+
+/* Portal-specific styles for analytics page */
+.analytics-dropdown-portal {
+  position: absolute;
+  z-index: 99999;
+}
+
+.analytics-dropdown-content {
+  background-color: white !important;
+  background: white !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(0, 102, 204, 0.3);
+  overflow: hidden;
+  min-width: 180px;
+}
+
+/* Analytics dropdown items */
+.analytics-dropdown-item {
+  padding: 12px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  background-color: white !important;
+  background: white !important;
+  color: #333;
+  font-weight: normal;
+  position: relative;
+  z-index: 10;
+}
+
+.analytics-dropdown-item.selected {
+  background-color: #e6f0ff !important;
+  background: #e6f0ff !important;
+  color: #0066cc;
+  font-weight: 500;
+}
+
+.analytics-dropdown-item:hover:not(.selected) {
+  background-color: #f0f7ff !important;
+  background: #f0f7ff !important;
+}
+
+/* Force opacity: 1 on all dropdown elements */
+.dropdown-container,
+.dropdown-option,
+.analytics-dropdown-portal,
+.analytics-dropdown-content,
+.analytics-dropdown-item {
+  opacity: 1 !important;
+}
+
+/* Override any interfering tailwind or other framework styles */
+.dropdown-container,
+.dropdown-option,
+.analytics-dropdown-portal,
+.analytics-dropdown-content,
+.analytics-dropdown-item {
+  background-color: white !important;
+  background: white !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Dropdown menu styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  background: white;
+  border: 1px solid #eaeaea;
+  border-radius: 6px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.dropdown-toggle:hover {
+  background-color: #f7f7f7;
+  border-color: #d9d9d9;
+}
+
+.dropdown-toggle:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+}
+
+.dropdown-toggle-icon {
+  font-size: 0.85em;
+  color: #666;
+  transition: transform 0.2s ease;
+}
+
+.dropdown-toggle[aria-expanded="true"] .dropdown-toggle-icon {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  min-width: 180px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 6px 0;
+  z-index: 1000;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+}
+
+.dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  padding: 10px 15px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f7ff;
+  color: #0066cc;
+}
+
+.dropdown-item.active {
+  background-color: #e6f0ff;
+  color: #0066cc;
+  font-weight: 500;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background-color: #f0f0f0;
+  margin: 6px 0;
+}
+
+/* Portal-based dropdowns */
+.dropdown-portal {
+  position: fixed;
+  z-index: 9999;
+}
+
+.dropdown-portal .dropdown-menu {
+  position: static;
+}
+
+/* For accessibility and keyboard navigation */
+.dropdown-item:focus {
+  outline: none;
+  background-color: #f0f7ff;
+  color: #0066cc;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .dropdown-menu {
+    position: fixed;
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-height: 60vh;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(100%);
+  }
+  
+  .dropdown-menu.show {
+    transform: translateY(0);
+  }
+  
+  .dropdown-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+  }
+  
+  .dropdown-backdrop.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .dropdown-header {
+    text-align: center;
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+  }
+  
+  .dropdown-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f5f5f5;
+    border: none;
+    cursor: pointer;
+  }
+}

@@ -238,7 +238,7 @@ export const allPartners = [
   {
     id: 19,
     name: 'The Water Research Foundation',
-    descrition: 'Nonprofit organization focused on water quality, conservation, and infrastructure research.',
+    description: 'Nonprofit organization focused on water quality, conservation, and infrastructure research.',
     logo: '/logos/wrf-logo.jpg',
     link: '/partners/water-research',
     icon: <FaFlask size={24} />,
@@ -444,11 +444,42 @@ export const allPartners = [
     location: 'Tempe, AZ',
     partneredSince: '2024-03-01',
   },
+  {
+    id: 38,
+    name: 'Start Up NV',
+    description: 'Nonprofit organization supporting entrepreneurship and innovation in Nevada.',
+    logo: '/logos/startupnv-logo.jpg',
+    link: '/partners/startupnv',
+    icon: <FaBuilding size={24} />,
+    category: 'Nonprofit',
+    location: 'Las Vegas, NV',
+    partneredSince: '2024-03-01',
+  },
+  {
+    id: 39,
+    name: 'US Magnesium',
+    description: 'Magnesium production company with a focus on sustainable operations and waste management.',
+    logo: '/logos/usm-logo.jpg',
+    link: '/partners/usm',
+    icon: <FaBuilding size={24} />,
+    category: 'Energy',
+    location: 'Salt Lake City, UT',
+    partneredSince: '2024-04-01',
+  },
+  {
+    id: 40,
+    name: 'Utah Rivers Council',
+    description: 'Nonprofit organization focused on river conservation, restoration, and education in Utah.',
+    logo: '/logos/urc-logo.jpg',
+    link: '/partners/urc',
+    icon: <FaBuilding size={24} />,
+    category: 'Nonprofit',
+    location: 'Salt Lake City, UT',
+    partneredSince: '2024-03-01',
+  }
 
 ];
 
-// Calculate category counts dynamically based on all partners
-// Update getCategoryCounts to include privateSector
 export const getCategoryCounts = () => {
   const counts = {
     academic: 0,
@@ -459,7 +490,7 @@ export const getCategoryCounts = () => {
     foodBeverage: 0,
     hospitality: 0,
     nonprofit: 0,
-    privateSector: 0  // Add Private Sector counter
+    privateSector: 0
   };
   
   allPartners.forEach(partner => {

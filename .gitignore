@@ -35,3 +35,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Ignore blog files that are causing errors
+/app/blog/utils.ts
+/app/blog/posts/

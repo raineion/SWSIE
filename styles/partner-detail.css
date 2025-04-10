@@ -57,27 +57,106 @@
   font-size: 1.1rem;
 }
 
-.back-link {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 10px 20px;
-  background-color: #0066cc;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: 600;
-  transition: background-color 0.2s ease;
-}
-
-.back-link:hover {
-  background-color: #0055aa;
-}
-
-/* Map container for heat maps */
-.map-container {
-  height: 400px;
-  margin: 20px 0;
+/* Enhanced filter button styling */
+.filter-button {
+  padding: 10px 15px;
   border-radius: 8px;
-  overflow: hidden;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+  text-align: center;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+/* Always blue button with upward hover animation */
+.filter-button.apply-filter,
+button.filter-button.apply-filter,
+.filter-actions .apply-filter,
+.filter-actions button.apply-filter,
+input.apply-filter,
+a.apply-filter,
+*[class*="apply-filter"] {
+  background-color: #0066cc !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 2px 4px rgba(0, 102, 204, 0.3) !important;
+  transform: translateY(0);
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+/* Hover effect - move upward, don't change color */
+.filter-button.apply-filter:hover,
+button.filter-button.apply-filter:hover,
+.filter-actions .apply-filter:hover,
+.filter-actions button.apply-filter:hover,
+input.apply-filter:hover,
+a.apply-filter:hover,
+*[class*="apply-filter"]:hover {
+  background-color: #0066cc !important; /* Keep same blue color */
+  color: white !important;
+  transform: translateY(-3px) !important; /* Move upward on hover */
+  box-shadow: 0 4px 8px rgba(0, 102, 204, 0.4) !important; /* Enhanced shadow for depth */
+}
+
+/* Active/pressed state */
+.filter-button.apply-filter:active,
+button.filter-button.apply-filter:active,
+.filter-actions .apply-filter:active,
+.filter-actions button.apply-filter:active,
+input.apply-filter:active,
+a.apply-filter:active,
+*[class*="apply-filter"]:active {
+  background-color: #0066cc !important;
+  transform: translateY(-1px) !important; /* Smaller upward movement when pressed */
+  box-shadow: 0 3px 6px rgba(0, 102, 204, 0.35) !important;
+}
+
+/* Maximum specificity override for apply-filter button */
+html body .partners-page .filter-section .filter-actions button.filter-button.apply-filter,
+html body .partners-page .filter-section .filter-actions .apply-filter,
+html body button.filter-button.apply-filter,
+html body .filter-button.apply-filter,
+[class].filter-button.apply-filter,
+html body [class^="filter"][class*="button"][class*="apply"],
+.filter-actions button.apply-filter[class],
+#root .apply-filter {
+  background: #0066cc !important;
+  background-color: #0066cc !important;
+  color: white !important;
+  border: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: flex !important;
+  position: relative !important;
+  z-index: 999 !important;
+  box-shadow: 0 2px 4px rgba(0, 102, 204, 0.3) !important;
+}
+
+/* Ensure hover state also maintains blue color */
+html body .partners-page .filter-section .filter-actions button.filter-button.apply-filter:hover,
+html body .partners-page .filter-section .filter-actions .apply-filter:hover,
+html body button.filter-button.apply-filter:hover,
+html body .filter-button.apply-filter:hover,
+[class].filter-button.apply-filter:hover,
+html body [class^="filter"][class*="button"][class*="apply"]:hover,
+.filter-actions button.apply-filter[class]:hover,
+#root .apply-filter:hover {
+  background: #0066cc !important;
+  background-color: #0066cc !important;
+  color: white !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 4px 8px rgba(0, 102, 204, 0.4) !important;
+}
+
+/* Reset button styling (keep unchanged) */
+.reset-filter {
+  background-color: #f5f5f5;
+  color: #666;
   border: 1px solid #ddd;
 }

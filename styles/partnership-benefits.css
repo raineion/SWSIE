@@ -1,0 +1,78 @@
+/* Modern Partnership Benefits Page */
+/* Southwest Sustainability Innovation Engine Partner Directory */
+/* ...existing code... */
+
+/* Partnership Benefits Styles */
+.benefits-section {
+  padding: 30px 0;
+}
+
+.benefits-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.benefits-title {
+  font-size: 2rem;
+  color: #0066cc;
+  margin-bottom: 10px;
+}
+
+.benefits-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.benefit-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 102, 204, 0.15);
+}
+
+.benefit-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 102, 204, 0.1);
+  border-radius: 50%;
+  color: #0066cc;
+  font-size: 1.8rem;
+}
+
+.benefit-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.benefit-description {
+  color: #666;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -90,3 +90,423 @@ html {
   color: #666;
   margin: 40px 0;
 }
+
+/* Force pagination button styling */
+.pagination-button-active,
+button.pagination-button-active,
+.pagination-button-active[style] {
+  background-color: #0066cc !important;
+  background: #0066cc !important;
+  color: white !important;
+  border-color: #0066cc !important;
+}
+
+/* Reset any inline styles that might be overriding */
+button[style].pagination-button-active:not([style*="background-color: inherit"]) {
+  background-color: #0066cc !important;
+}
+
+/* Ensure both background and backgroundColor are applied */
+[style*="background:"].pagination-button-active {
+  background: #0066cc !important;
+}
+
+[style*="background-color:"].pagination-button-active {
+  background-color: #0066cc !important;
+}
+
+/* Remove focus outlines from carousel elements */
+.carousel-container *:focus,
+.carousel-container button:focus,
+.carousel-container a:focus,
+.carousel-container [tabindex]:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Only show focus outlines when using keyboard navigation for accessibility */
+.carousel-container *:focus-visible {
+  outline: 2px solid #0066cc !important;
+  outline-offset: 2px;
+}
+
+/* Enhanced focus removal for carousel elements */
+.carousel-container *:focus,
+.carousel-container *:focus-within,
+.carousel-container button:focus,
+.carousel-container a:focus,
+.carousel-container [tabindex]:focus,
+.carousel-container div:focus,
+.carousel-container img:focus,
+.slick-slide:focus,
+.slick-slide div:focus,
+.slick-slide a:focus,
+.slick-slide img:focus,
+.slick-track:focus,
+.slick-list:focus,
+[role="button"]:focus,
+[role="tab"]:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  appearance: none !important;
+}
+
+/* Remove all focus rings in the carousel */
+.carousel-container *::after,
+.carousel-container *::before {
+  outline: none !important;
+}
+
+/* Remove tap highlight color on mobile devices */
+.carousel-container, 
+.carousel-container * {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Remove dotted Firefox focus ring */
+.carousel-container *, 
+.carousel-container *::-moz-focus-inner {
+  border: 0 !important;
+}
+
+/* Super aggressive focus/selection prevention for carousel */
+.carousel-container *,
+.carousel-inner *,
+.partner-card,
+.partner-card *,
+button.card-button,
+div.card-button,
+.card-button-container,
+[class*="carousel"],
+[class*="card"] {
+  -webkit-tap-highlight-color: transparent !important;
+  outline: 0 !important;
+  outline: none !important;
+  outline-style: none !important;
+  outline-width: 0 !important;
+  outline-color: transparent !important;
+  box-shadow: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
+/* Safari-specific fixes */
+@media not all and (min-resolution:.001dpcm) { 
+  @supports (-webkit-appearance:none) {
+    .carousel-container, .carousel-container * {
+      -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+      outline: none !important;
+    }
+  }
+}
+
+/* Firefox-specific fixes */
+@-moz-document url-prefix() {
+  .carousel-container, .carousel-container * {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Add these transition utility classes to your existing utilities.css */
+
+/* Smooth transition classes */
+.fade-in {
+  animation: fadeIn 0.25s ease forwards;
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+.staggered-item {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Delay classes for staggered animations */
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+/* Define animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ensure smooth transition between pages */
+#__next {
+  transition: opacity 0.3s ease;
+}
+
+.page-transition-enter {
+  opacity: 0;
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+/* Add these performance optimization classes to your existing utilities.css */
+
+/* Optimize animations */
+.fast-transition {
+  transition-duration: 0.3s !important;
+}
+
+/* Optimize transforms for GPU acceleration */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform, opacity;
+}
+
+/* Reduce animation complexity */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01s !important;
+    animation-duration: 0.01s !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Faster page transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Use hardware acceleration for animations */
+.animate-gpu {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+}
+
+/* Ultra-fast transitions */
+.instant-transition {
+  transition-duration: 0.15s !important;
+}
+
+/* Optimized page transitions for immediate effect */
+.page-transition-enter {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+/* Hardware acceleration for all animations */
+* {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Disable transitions for users who prefer reduced motion */
+@media (prefers-reduced-motion) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Ultra-fast instant transitions */
+.instant-transition {
+  transition-duration: 0.1s !important;
+}
+
+/* Force immediate page transitions */
+.page-transition-enter,
+.page-transition-enter-active,
+.page-transition-exit,
+.page-transition-exit-active {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Hardware acceleration for all page components */
+html, body, #__next, .layout-wrapper, .page-content, .app-container {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Static pages with no animations */
+.static-page {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Disable all scroll behavior for immediate display */
+html {
+  scroll-behavior: auto !important;
+}
+
+/* Eliminate transition delays */
+* {
+  transition-delay: 0s !important;
+  animation-delay: 0s !important;
+}
+
+/* Add these for consistent page transitions */
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+
+/* Ensure entire page content transitions as one unit */
+.static-page {
+  opacity: 1 !important;
+  transition: opacity 0.1s ease !important;
+}
+
+/* Ensure all children of static-page have no individual animations */
+.static-page > *,
+.static-page > * > *,
+.static-page > * > * > * {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+/* App container always fades in/out as a whole */
+.app-container {
+  width: 100%;
+  min-height: 100%;
+  transition: opacity 0.1s ease;
+}
+
+/* Remove any motion animation when changing pages */
+.layout-wrapper {
+  will-change: contents;
+}
+
+/* Motion overrides to ensure consistent behavior */
+[data-motion],
+[data-motion="from-start"],
+[data-motion="from-end"],
+[data-motion="to-start"],
+[data-motion="to-end"] {
+  transition: none !important;
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Page wrapper for transitions */
+.page-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+/* Navigation item transition */
+.nav-item-transition {
+  transition: all 0.25s ease;
+}
+
+/* Remove conflicting rules that disable transitions */
+.force-immediate-page-transitions,
+.page-transition-enter.force-immediate,
+.page-transition-enter-active.force-immediate,
+.page-transition-exit.force-immediate,
+.page-transition-exit-active.force-immediate {
+  /* Removed rules to allow transitions again */
+}
+
+/* Restore transitions for static pages */
+.static-page {
+  /* Removed overrides to restore transitions */
+}
+
+/* Allow transitions for all page elements */
+* {
+  /* Removed forced elimination of transition delays */
+}

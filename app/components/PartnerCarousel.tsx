@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { FaBuilding, FaUniversity, FaCity, FaFlask } from 'react-icons/fa';
+import { FaBuilding } from 'react-icons/fa';
 
 
 const featuredPartners = [
@@ -30,32 +30,267 @@ const featuredPartners = [
   },
   {
     id: 4,
+    name: 'Swire Coca-Cola',
+    description: 'Beverage company with a focus on sustainable packaging, water conservation, and energy efficiency.',
+    logo: '/logos/swire-logo.jpg',
+    link: '/partners/swire-coca-cola',
+  },
+  {
+    id: 5,
+    name: 'Chevron',
+    description: 'Energy corporation specializing in oil, natural gas, and geothermal energy production.',
+    logo: '/logos/chevron-logo.jpg',
+    link: '/partners/chevron',
+  },
+  {
+    id: 6,
     name: 'NV Energy',
     description: 'Utility company providing electricity and renewable energy services in Nevada.',
     logo: '/logos/nv-energy-logo.jpg',
     link: '/partners/nv-energy',
   },
   {
-    id: 5,
+    id: 7,
     name: 'Caesars Entertainment',
     description: 'Hospitality company with a focus on sustainable operations and water conservation.',
     logo: '/logos/caesars-logo.jpg',
     link: '/partners/caesars',
   },
   {
-    id: 6,
+    id: 8,
+    name: 'The University of Utah',
+    description: 'Public research university with expertise in environmental science and renewable energy.',
+    logo: '/logos/uofu-logo.jpg',
+    link: '/partners/uofu',
+  },
+  {
+    id: 9,
+    name: 'Zero Labs',
+    description: 'Zero Labs works with a wide range of partners, from early-stage startups to Fortune 500 companies, to bring their ideas to life.',
+    logo: '/logos/zerolabs-logo.jpg',
+    link: '/partners/zerolabs',
+  },
+  {
+    id: 10,
+    name: 'NVIDIA',
+    description: 'Technology company specializing in graphics processing units and artificial intelligence.',
+    logo: '/logos/nvidia-logo.jpg',
+    link: '/partners/nvidia',
+  },
+  {
+    id: 11,
+    name: 'Starbucks',
+    description: 'Global coffee company with a focus on sustainable sourcing and waste reduction.',
+    logo: '/logos/starbucks.jpg',
+    link: '/partners/starbucks',
+  },
+  {
+    id: 12,
     name: 'Switch',
     description: 'Data center company with a focus on renewable energy and sustainable operations.',
     logo: '/logos/switch-logo.svg',
     link: '/partners/switch',
   },
   {
-    id: 7,
-    name: 'The University of Utah',
-    description: 'Public research university with expertise in environmental science and renewable energy.',
-    logo: '/logos/uofu-logo.jpg',
-    link: '/partners/uofu',
-  },  
+    id: 13,
+    name: 'Arizona Public Service',
+    description: 'Utility company providing electricity and renewable energy services in Arizona.',
+    logo: '/logos/aps-logo.jpg',
+    link: '/partners/aps',
+  },
+  {
+    id: 14,
+    name: 'State of Nevada',
+    description: 'Government agency focused on sustainability, water conservation, and renewable energy.',
+    logo: '/logos/nevada-logo.jpg',
+    link: '/partners/nevada',
+  },
+  {
+    id: 15,
+    name: 'City of Salt Lake City',
+    description: 'Municipal government with a focus on sustainability, renewable energy, and urban planning.',
+    logo: '/logos/slc-logo.jpg',
+    link: '/partners/slc',
+  },
+  {
+    id: 16,
+    name: 'State of Utah',
+    description: 'Government agency focused on sustainability, water conservation, and renewable energy.',
+    logo: '/logos/utah-logo.svg',
+    link: '/partners/utah',
+  },
+  { 
+    id: 17,
+    name: 'City of Chandler',
+    description: 'Municipal government with a focus on sustainability, renewable energy, and urban planning.',
+    logo: '/logos/chandler-logo.jpg',
+    link: '/partners/chandler',
+  },
+  {
+    id: 18,
+    name: 'Western Area Power Administration',
+    description: 'Federal agency managing power distribution in the Western U.S. with a focus on renewable energy.',
+    logo: '/logos/wapa-logo.jpg',
+    link: '/partners/wapa',
+  },
+  {
+    id: 19,
+    name: 'The Water Research Foundation',
+    description: 'Nonprofit organization focused on water quality, conservation, and infrastructure research.',
+    logo: '/logos/wrf-logo.jpg',
+    link: '/partners/water-research',
+  },
+  {
+    id: 20,
+    name: 'SciTech Institute',
+    description: 'Nonprofit organization supporting STEM education and workforce development in Arizona.',
+    logo: '/logos/scitech-logo.jpg',
+    link: '/partners/scitech',
+  },
+  {
+    id: 21,
+    name: 'Maricopa Community College',
+    description: 'Community college system with programs in sustainability, renewable energy, and environmental science.',
+    logo: '/logos/mcccd-logo.jpg',
+    link: '/partners/mcccd',
+  },
+  {
+    id: 22,
+    name: 'Arizona Technology Council',
+    description: 'Trade association supporting technology companies and innovation in Arizona.',
+    logo: '/logos/aztech-logo.jpg',
+    link: '/partners/aztech',
+  },
+  {
+    id: 23,
+    name: 'City of Phoenix',
+    description: 'Municipal government with a focus on sustainability, renewable energy, and urban planning.',
+    logo: '/logos/phoenix-logo.jpg',
+    link: '/partners/phoenix',
+
+  },
+  {
+    id: 24,
+    name: 'Greater Phoenix Economic Council',
+    description: 'Economic development organization supporting business growth and innovation in the Phoenix metro area.',
+    logo: '/logos/gpec-logo.jpg',
+    link: '/partners/gpec',
+
+  },
+  {
+    id: 25,
+    name: 'Arizona Municipal Water Users Association',
+    description: 'Association of municipal water providers focused on water conservation and policy in Arizona.',
+    logo: '/logos/amwua-logo.jpg',
+    link: '/partners/amwua',
+  },
+  {
+    id: 26,
+    name: 'Clear Creek Associates',
+    description: 'Environmental consulting firm specializing in water resources, geology, and environmental science.',
+    logo: '/logos/cca-logo.jpg',
+    link: '/partners/cca',
+  },
+  {
+    id: 27,
+    name: 'Cottonwood Heights',
+    description: 'Municipal government with a focus on sustainability, renewable energy, and urban planning.',
+    logo: '/logos/cottonwood-logo.jpg',
+    link: '/partners/cottonwood',
+  },
+  {
+    id: 28,
+    name: 'Ecolab',
+    description: 'Global company providing water, hygiene, and energy technologies and services.',
+    logo: '/logos/ecolab-logo.jpg',
+    link: '/partners/ecolab',
+  },
+  {
+    id: 29,
+    name: 'Epic CleanTec',
+    description: 'Innovative company providing sustainable water and waste management solutions.',
+    logo: '/logos/epic-logo.jpg',
+    link: '/partners/epic',
+  },
+  {
+    id: 30,
+    name: 'Electric Power Research Institute',
+    description: 'Research organization focused on electricity generation, delivery, and use.',
+    logo: '/logos/epri-logo.jpg',
+    link: '/partners/epri',
+  },
+  {
+    id: 31,
+    name: 'Friends of Great Salt Lake',
+    description: 'Nonprofit organization focused on conservation, education, and advocacy for the Great Salt Lake.',
+    logo: '/logos/fogsl-logo.jpg',
+    link: '/partners/fogsl',
+  },
+  {
+    id: 32,
+    name: 'NV5',
+    description: 'Engineering consulting firm specializing in infrastructure, water resources, and environmental projects.',
+    logo: '/logos/nv5-logo.jpg',
+    link: '/partners/nv5',
+
+  },
+  {
+    id: 33,
+    name: 'Place Collaborative',
+    description: 'Urban planning and design firm focused on sustainable development and community engagement.',
+    logo: '/logos/place-logo.jpg',
+    link: '/partners/place',
+
+  },
+  {
+    id: 34,
+    name: 'Plug and Play',
+    description: 'Global innovation platform connecting startups with corporate partners and investors.',
+    logo: '/logos/plugandplay-logo.jpg',
+    link: '/partners/plugandplay',
+  },
+  {
+    id: 35,
+    name: 'City of South Jordan',
+    description: 'Municipal government with a focus on sustainability, renewable energy, and urban planning.',
+    logo: '/logos/southjordan-logo.jpg',
+    link: '/partners/southjordan',
+  },
+  {
+    id: 36,
+    name: 'Southern Nevada Water Authority',
+    description: 'Regional water utility providing water treatment, delivery, and conservation services.',
+    logo: '/logos/snwa-logo.jpg',
+    link: '/partners/snwa',
+  },
+  {
+    id: 37,
+    name: 'SRP',
+    description: 'Utility company providing electricity and water services in Arizona.',
+    logo: '/logos/srp-logo.jpg',
+    link: '/partners/srp',
+  },
+  {
+    id: 38,
+    name: 'Start Up NV',
+    description: 'Nonprofit organization supporting entrepreneurship and innovation in Nevada.',
+    logo: '/logos/startupnv-logo.jpg',
+    link: '/partners/startupnv',
+  },
+  {
+    id: 39,
+    name: 'US Magnesium',
+    description: 'Magnesium production company with a focus on sustainable operations and waste management.',
+    logo: '/logos/usm-logo.jpg',
+    link: '/partners/usm',
+  },
+  {
+    id: 40,
+    name: 'Utah Rivers Council',
+    description: 'Nonprofit organization focused on river conservation, restoration, and education in Utah.',
+    logo: '/logos/urc-logo.jpg',
+    link: '/partners/urc',
+  }
 ];
 
 // Create an array with duplicated partners to ensure continuous scrolling
@@ -243,6 +478,12 @@ export default function PartnerCarousel() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
+        style={{
+          color: '#0066cc', // Explicitly set color inline
+          fontWeight: 700,
+          fontSize: '1.8rem', /* Reduced from 2rem */
+          marginBottom: '30px' /* Reduced from 40px */
+        }}
       >
         Our Featured Partners
       </motion.h2>
@@ -254,13 +495,19 @@ export default function PartnerCarousel() {
         onMouseLeave={handleMouseLeave}
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
+        style={{ 
+          WebkitTapHighlightColor: 'transparent',
+          outline: 'none',
+          userSelect: 'none',
+          touchAction: 'manipulation'
+        }}
       >
         <div 
           className="carousel-inner"
           ref={innerRef}
           style={{ 
             display: 'flex',
-            gap: '15px', // Further reduced gap from 20px to 15px to fit more cards
+            gap: '12px', /* Reduced from 15px */
             willChange: 'transform',
             transform: 'translate3d(0, 0, 0)', // Initial value with hardware acceleration
             backfaceVisibility: 'hidden' // Reduce flickering
@@ -273,23 +520,46 @@ export default function PartnerCarousel() {
               onMouseEnter={() => handleCardMouseEnter(index)}
               onMouseLeave={handleCardMouseLeave}
               whileHover={{ 
-                y: -10,
-                boxShadow: '0 15px 30px rgba(0, 0, 0, 0.2)',
+                y: -8, /* Reduced from -10 */
+                boxShadow: '0 12px 25px rgba(0, 0, 0, 0.18)',
                 transition: { duration: 0.2 }
               }}
               style={{
                 boxShadow: activeIndex === index 
-                  ? '0 15px 30px rgba(0, 0, 0, 0.25)'
-                  : '0 8px 16px rgba(0, 0, 0, 0.1)'
+                  ? '0 12px 25px rgba(0, 0, 0, 0.22)'
+                  : '0 6px 12px rgba(0, 0, 0, 0.08)',
+                backgroundColor: 'white',
+                height: '360px', /* Reduced from 420px */
+                width: '280px', /* Added explicit width */
+                flexShrink: 0, /* Prevent shrinking */
+                display: 'flex',
+                flexDirection: 'column',
+                overflow: 'hidden',
+                borderRadius: '10px' /* Added rounded corners */
               }}
             >
-              <div className="card-header">
+              <div className="card-header" style={{ 
+                padding: '16px 16px 8px', /* Reduced padding */
+                borderBottom: '1px solid #f0f0f0'
+              }}>
                 {partner.logo && (
-                  <div className="card-logo-container">
+                  <div className="card-logo-container" style={{
+                    height: '65px', /* Reduced from default */
+                    width: '65px',
+                    margin: '0 auto 10px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}>
                     <img 
                       src={partner.logo}
                       alt={`${partner.name}`}
                       className="card-logo"
+                      style={{
+                        maxHeight: '100%',
+                        maxWidth: '100%',
+                        objectFit: 'contain'
+                      }}
                       onError={(e) => {
                         // If logo fails to load, show icon instead
                         e.currentTarget.style.display = 'none';
@@ -300,26 +570,52 @@ export default function PartnerCarousel() {
                     />
                   </div>
                 )}
-                {/* Only show the icon container if there's no logo */}
                 {!partner.logo && (
                   <div className="card-icon-container">
-                    <FaBuilding size={24} />
+                    <FaBuilding size={24} color="white" />
                   </div>
                 )}
-                <h3 className="card-title">{partner.name}</h3>
+                <h3 className="card-title" style={{
+                  fontSize: '1.1rem', /* Reduced from default */
+                  fontWeight: '600',
+                  textAlign: 'center',
+                  margin: '0 0 10px'
+                }}>{partner.name}</h3>
               </div>
               
-              <p className="card-description">{partner.description}</p>
+              <p className="card-description" style={{
+                fontSize: '0.9rem', /* Reduced from default */
+                lineHeight: '1.4',
+                padding: '12px 16px',
+                flex: 1,
+                margin: 0,
+                color: '#444'
+              }}>{partner.description}</p>
               
-              <motion.button 
-                className="card-button"
-                onClick={() => handlePartnerClick(partner.link)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                style={{ backgroundColor: "#0066cc" }}
-              >
-                View Partnership Details
-              </motion.button>
+              <div className="card-button-container" style={{
+                padding: '10px 16px 16px', /* Reduced padding */
+                textAlign: 'center'
+              }}>
+                <motion.button 
+                  className="card-button"
+                  onClick={() => handlePartnerClick(partner.link)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  style={{
+                    backgroundColor: '#0066cc',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '5px',
+                    padding: '8px 16px', /* Reduced from 10px 20px */
+                    fontSize: '0.9rem', /* Reduced from default */
+                    fontWeight: 500,
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease'
+                  }}
+                >
+                  View Partnership Details
+                </motion.button>
+              </div>
             </motion.div>
           ))}
         </div>
